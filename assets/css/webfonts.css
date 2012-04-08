@@ -1,0 +1,96 @@
+@font-face {
+	font-family: 'YWFT Ultramagnetic Light Oblique';
+	src: url('/assets/webfonts/ywft-ultramagnetic-light-oblique.eot');
+	src: url('/assets/webfonts/ywft-ultramagnetic-light-oblique.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/ywft-ultramagnetic-light-oblique.woff') format('woff'),
+	     url('/assets/webfonts/ywft-ultramagnetic-light-oblique.ttf') format('truetype'),
+	     url('/assets/webfonts/ywft-ultramagnetic-light-oblique.svg#ywftsvg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Junction';
+	src: url('/assets/webfonts/junction/webfonts/Junction-webfont.eot');
+	src: url('/assets/webfonts/junction/webfonts/Junction-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/junction/webfonts/Junction-webfont.woff') format('woff'),
+	     url('/assets/webfonts/junction/webfonts/Junction-webfont.ttf') format('truetype'),
+	     url('/assets/webfonts/junction/webfonts/Junction-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'League Gothic';
+	src: url('/assets/webfonts/league-gothic/webfonts/League_Gothic-webfont.eot');
+	src: url('/assets/webfonts/league-gothic/webfonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/league-gothic/webfonts/League_Gothic-webfont.woff') format('woff'),
+	     url('/assets/webfonts/league-gothic/webfonts/League_Gothic-webfont.ttf') format('truetype'),
+	     url('/assets/webfonts/league-gothic/webfonts/League_Gothic-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Ostritch Sans Rounded';
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-rounded-webfont.eot');
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-rounded-webfont.woff') format('woff'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-rounded-webfont.ttf') format('truetype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-rounded-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Ostritch Sans Bold';
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-bold-webfont.eot');
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-bold-webfont.woff') format('woff'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-bold-webfont.ttf') format('truetype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-bold-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Ostritch Sans Regular';
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-regular-webfont.eot');
+	src: url('/assets/webfonts/ostrich-sans/webfonts/ostrich-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-regular-webfont.woff') format('woff'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-regular-webfont.ttf') format('truetype'),
+	     url('/assets/webfonts/ostrich-sans/webfonts/ostrich-regular-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'MelbourneBold';
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-bold-webfont.eot');
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-bold-webfont.woff') format('woff'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-bold-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-bold-webfont.svg#MelbourneBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MelbourneRegular';
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-reg-webfont.eot');
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-reg-webfont.woff') format('woff'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-reg-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-reg-webfont.svg#MelbourneRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MelbourneLight';
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-light-webfont.eot');
+    src: url('/assets/webfonts/melbourne/webfonts/melbourne-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-light-webfont.woff') format('woff'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-light-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/melbourne/webfonts/melbourne-light-webfont.svg#MelbourneLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
