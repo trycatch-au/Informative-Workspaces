@@ -1,5 +1,13 @@
 <?php
 
+use RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle;
+
+use FOS\RestApiExplorerBundle\FOSRestApiExplorerBundle;
+
+use JMS\SerializerBundle\JMSSerializerBundle;
+
+use FOS\RestBundle\FOSRestBundle;
+
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -19,8 +27,12 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
+            new FOSRestBundle(),
+            new JMSSerializerBundle($this),
+            new RaulFraileLadybugBundle(),
             new NDM\TryCatchBundle\NDMTryCatchBundle(),
-            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle()
+            # new FOSRestApiExplorerBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

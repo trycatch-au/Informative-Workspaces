@@ -1,5 +1,5 @@
 {
-    "hash": "cc517cacccd22fd99890074d4b74fab7",
+    "hash": "7c283bdf135fb86bb6f5f652f0c8a3df",
     "packages": [
         {
             "package": "doctrine/common",
@@ -27,7 +27,7 @@
         {
             "package": "doctrine/mongodb-odm-bundle",
             "version": "dev-master",
-            "source-reference": "1216358f8210f326ea51a31baa26951e557b6fe3"
+            "source-reference": "9aa933e9c50fb8d58f9d49fb57a6e66a6a57d6d0"
         },
         {
             "package": "doctrine/orm",
@@ -41,7 +41,11 @@
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "7141a373a333f0454224c6d87a7afa15d51c54a2"
+            "source-reference": "b35c03abb78e5d96c72eb261d584bcee1daf5559"
+        },
+        {
+            "package": "friendsofsymfony/rest-explorer2",
+            "version": "1"
         },
         {
             "package": "jms/aop-bundle",
@@ -76,6 +80,16 @@
         {
             "package": "monolog/monolog",
             "version": "1.0.2"
+        },
+        {
+            "package": "raulfraile/LadybugBundle",
+            "version": "dev-master",
+            "source-reference": "c3c0ad6a1a256142bde0aaad537ea3f4c8643418"
+        },
+        {
+            "package": "raulfraile/ladybug",
+            "version": "dev-master",
+            "source-reference": "v0.5"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -119,7 +133,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "02e1b81f6512d141cbdaa7c4722848310c771aae",
+            "source-reference": "b47cb35e7bcb0d91664ca276b6473ad6fa5f827b",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -130,9 +144,10 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "fd634d1af20fb41dd4e9f7b23806513a6a6b8110",
+            "source-reference": "58fbe0da4146608e085d7e67ebf2eae7aa8da19e",
             "alias": "1.7.9999999.9999999-dev"
         }
     ],
+    "packages-dev": null,
     "aliases": []
 }

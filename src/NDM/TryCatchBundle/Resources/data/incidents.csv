@@ -1,0 +1,163 @@
+ID,Name,Description,Priority,CreatedDate,ClosedDate,ChangeFlagIM201657,NAT - Fatwire - Fatpix for Editors is not functioning due to a reliance on an external website,"Name - Michael Owen-brown
+
+Location -31 Waymouth Street, Adelaide
+
+Dept - Editorial, Adelaide Now
+
+Description
+
+User called and advised that fatpix is not loading. all they can see is java wheel loading on screen and it won't go any further.
+
+Other 2 users are having similar issues :
+Linten Grace and Tony Reid
+
+Follow all steps through KB but it seems its an issue with fatwire/fatpix itself. refer to attachment.",1,Sun Nov 04 11:14:59 EST 2012,Sun Nov 04 17:31:50 EST 2012,FALSEIM200910,NSW - Fatwire Issue - News.com.au,NSW - Fatwire Issue - News.com.au,2,Sat Aug 04 18:09:31 EST 2012,Sat Aug 04 20:46:19 EST 2012,FALSEIM200911,QNP - CourierMail website,QNP - CourierMail website,2,Sat Aug 04 18:10:03 EST 2012,Sat Aug 04 20:45:37 EST 2012,FALSEIM201052,NAT-The Australia mobile site world section paid content displaying page not found,Callers Name:Simon Mainwaring,2,Tue Sep 04 18:32:29 EST 2012,Tue Sep 04 18:40:09 EST 2012,FALSEIM201241,NSW - Fatwire performing extreamly slow when trying to create a story.,"NSW - Fatwire performing extreamly slow when trying to create a story.
+Content not being displayed on news.com
+Not able to save stories, unable to save created stories.
+User only reported that there are 4 people affected.
+Tried republishing story but experiancing the same issue.
+
+Caller's Name:Alison Godfrey
+Caller's Phone number:0281147385
+Caller's Department:News.com.au
+Caller's Desk Location:175 Liverpool Street Sydney
+Caller's Machine Number:1015812",2,Thu Oct 04 11:42:11 EST 2012,Thu Oct 04 12:14:22 EST 2012,FALSEIM202728,NSW - Fatwire Publsihing Issue,"NSW - Fatwire Publsihing Issue
+
+not publsihing for more than 30 minutes>>user advised that users from SA and NSW are experiencing same issue>>user advised that Zareen O'Keefe is looking into this now>>user advised to raise this as a P2
+
+Callers Name: Simon Black
+Callers Phone No.: 02 8114 12682
+Callers Department: Daily Telegraph
+Callers Desk Location: 2 Holt St",2,Fri Jan 04 14:52:45 EST 2013,Fri Jan 04 15:09:44 EST 2013,FALSEIM201337,SEQ - Fatwire authoring slow,Most functions in Fatwire very slow. 502 errors on preview pages.,3,Thu Oct 04 13:01:57 EST 2012,Thu Apr 04 09:34:20 EST 2013,FALSEIM201325,Vic - Fatwire running slow.,"Vic - Fatwire running slow.
+
+Caller's Name: Gilbert Gardiner
+Caller's Phone number: 03 9292 1519
+Caller's Department: Herald Sun
+Caller's Desk Location:
+Caller's Machine Number: HWTONLL109726
+
+
+-When trying to update a story/promo it lags for a long time before opening up (approimately 30 secs to a minute)
+-Nothing else seems affected and happening to a some other users in Herald Sun (3 or 4 users so far)
+-Checked Firefox and Java versions and cleared cache.",3,Thu Oct 04 12:37:00 EST 2012,Thu Apr 04 09:34:00 EST 2013,FALSEIM201472,NSW - Fatwire Publishing Delays,"NSW - Fatwire Publishing Delays
+
+Publishing Dealys in fatwire>>taking over 20 minutes to publsih>>checked fatwire publishing times for news.com.au and they are below the threshhold>>cleared cookies/tmp files>>cleared java files>>restart firefox and tested publishing  successfully>>user would still like a job raisea and for it to be investigated
+
+Callers Name: Melinda Browning
+Callers Phone No.: 0281147385
+Callers Department: News.com.au
+Callers Desk Location: Liverpool Srt NSW
+Callers machine no: 302098",3,Thu Oct 04 18:18:46 EST 2012,Thu Apr 04 09:52:10 EST 2013,FALSEIM201484,NSW - m.theaustralian.com.au site,"NSW - m.theaustralian.com.au site
+
+the world section >>if clicked on paid content story within world >>error when clicking on paid story on the austrlian site for the world section>>see screenshot attached>>user advised that this is not urgent and can be investigated in the morning
+
+paid content issue
+
+Callers Name: Lachlan Gilbert
+Callers Phone No.: 0404192367
+Callers Department: Mobile
+Callers Desk Location: Liverpool St NSW
+Callers machine no: NINL1014896",3,Thu Oct 04 19:50:27 EST 2012,Thu Apr 04 09:55:44 EST 2013,FALSEIM201597,VIC - Legal Killed Comment still on Live Site but not in Fatwire CMS.,"VIC - Scott called and has found that a legal killed comment is still appearing on stories.
+
+Scott advised that this comment was legal killed at 7:30am this morning but is still appearing on the website. Have attached a screenshot of the story in Fatwire CMS showing that the comment does not exist. If you navigate to the link below it is still on the website.
+
+url. http://www.heraldsun.com.au/news/true-crime-scene/geoff-wilkinson-names-his-black-list-of-notorious-criminals/story-fnat7jnn-1226319720713
+storyid. 1226319720713
+The name is Jackie of Melbourne
+
+pc. HWTONLD1008894
+loc. L12 - HWT
+ext. 03 9292 2349",3,Sun Nov 04 08:52:15 EST 2012,Thu Apr 04 09:57:09 EST 2013,FALSEIM201612,NSW - EXACT TARGET COMPETITION FORM NOT LOADING ON,"Hi, we have a LIVE competition running for a client on Herald Sun Superfooty http://www.heraldsun.com.au/afl/unsungheroescomp which is utilising the ExactTarget competition form. Have checked Firefox, IE and Chrome and it's not working on all three browsers.
+This needs to be fixed ASAP.",3,Sun Nov 04 09:46:36 EST 2012,Sun Nov 04 14:26:59 EST 2012,FALSEIM201790,Ul tier 3 on site nav assets not working,"Hi there - we have a fatwire bug where we want to display 3 level of navs on our site but this doesn't seem to work.
+Our site nav asset ID: 1225705544554
+
+If we preview the nav assets only - it shows 3 level of navs:
+http://fw.cms.news.com.au/cs/Satellite?c=News_Nav&cid=1225705544554&pagename=NewsComAu%2FFDNpreview&rendermode=previewnoinsite
+
+But if we preview the page, none of the level 3 subnavigations displayed:
+http://fw.cms.news.com.au/cs/Satellite/?site=NewsComAu
+
+Can we have this looked at by fatwire developer please? Thanks.",3,Sun Nov 04 18:40:26 EST 2012,Thu Apr 04 10:46:37 EST 2013,FALSEIM202779,NSW -  Page missing content ion live site,"NSW -  Page missing content ion live site
+
+Page has been published, looked fine up until very recently, no appears with no content
+Page appears correctly in fatwire, but live site shows no content
+Asset ID : 1226296948064
+Page is assigned to the news.com.au site, and is cotained with Home\features\titanic
+
+Name: Dan Fischer
+IT&T:
+Location: 2 Holt Street
+Phone number: 0407 326 626",2,Fri Jan 04 17:29:41 EST 2013,Thu Apr 04 12:33:35 EST 2013,FALSEIM201132,VIC - Fatwire issue - Cam interfering with Click Tale,"VIC - Fatwire issue - Cam interfering with Click Tale
+Click Tale is tracking script
+
+Response from Vendor: Thank you for contacting ClickTale Support.
+
+The Bad Response from Remote Server (302) error indicates that the ClickTale Bot was unable to fetch the HTML of the page from your server. Possible reasons include redirects, user-agent restrictions, or session based pages. Please make sure that your pages are accessible to the ClickTale bot user agent and its IP range 75.125.82.64/26 50.97.162.64/26 (stands for 75.125.82.64 - 75.125.82.127 and 50.97.162.64 - 50.97.162.127) is whitelisted.
+
+Please feel free to contact me if you have any additional questions.
+
+
+
+Name:  Scott Lamkin
+IT&T:  HWTONLD1008894
+Location:  HWT Tower, 40 City Road
+Phone number: 03 9292 2349
+Department:  Herald Sun online team
+
+
+Troubleshooting:
+Please check the attached email",4,Thu Oct 04 08:37:52 EST 2012,null,FALSEIM201626,QLD - Fatwire not displaying stories correctly.,"QLD - Fatwire not displaying stories correctly.
+
+Looks like plain text, appears like HTML formatting problem.
+See attached.
+
+Tried uninstalling and reinstalling Java V6 U18. Restarted, no change.
+
+Enabled Java plugins. Restarted Firefox and retried. Same problem.
+
+Name:Kylie Knight
+IT&T:  QSTEDTD01790
+Location: 19 Creek Street, Redcliffe
+Department: QST
+Phone number: 07 3480 8203
+
+Had called previously (SD432163) and had KM2274 applied.
+
+This worked as far as left nav tabs displayed correctly however stories not displayed in correct format.",4,Sun Nov 04 10:17:56 EST 2012,Thu Apr 04 10:01:22 EST 2013,FALSEIM201798,NSW - Fatwire and Fatpix issue,"NSW - Fatwire and Fatpix issue
+*User working from home on personal PC
+*Got correct Java and Firefox version (Java version 6 update 18 and Firefox 3.6.28)
+*Outlook and internet working ok
+*Java is not loading for Fatwire/Fatpix
+*Advised user to enable her Java plugins in Firefox but got same issue
+
+User Debra Killalea
+Phone 0432 298 714",4,Sun Nov 04 19:22:19 EST 2012,Tue Dec 04 09:27:37 EST 2012,FALSEIM201816,WA - PerthNow.com.au Issue,"WA - PerthNow.com.au Issue
+
+thumbnail on perthnow.com.au website has disappeared from site>>see screenshot attached>>user has republished thumbnail but still not showing on live site
+
+story - Tsunami fears as massive quake hits Indo - no thumbnail
+
+Callers Name: Corey Stephenson
+Callers Phone No.: 0893269442
+Callers Department: Perthnow.com.au
+Callers Desk Location: Perth NSW
+Callers machine no: PSTPN1989",3,Sun Nov 04 23:18:26 EST 2012,Thu Apr 04 11:20:03 EST 2013,FALSEIM201903,WA - customer is calling to say that Fatwire is running slow. when trying to save or publishing and,"WA - customer is calling to say that Fatwire is running slow. when trying to save or publishing and editing
+
+for Perthnow and News.com.au
+
+Callers Name: Simon VanderHeyden
+Callers Phone No.: 8 9326 9546
+Callers Desk Location:34-42 Stirling Street
+Callers machine no:PSTPN0878  10.68.125.27",3,Tue Dec 04 10:10:38 EST 2012,Fri Jan 04 15:22:47 EST 2013,FALSEIM202112,NSW - FatWire - PCUAT training environment,"Cyber and Cyber on demand is not feeding through to pick 'n' mix.
+newscore is working fine.
+
+please fix",4,Tue Dec 04 16:51:39 EST 2012,Fri Jan 04 15:20:45 EST 2013,FALSEIM202458,VIC - Fatwire running slow,"VIC - delay in publishing in Fatwire
+Client has tried 3 different PC and same issue
+There is delay in publishing for about 3-5 minutes
+Please see the attachment
+I have ran KM3921 and there is no delay in publishing
+
+Name:Malcolm Livermore
+Ph:+61 3 9292 3139
+Address: HWT Tower, 40 City Road
+PC no: 1008893",4,Tue Dec 04 20:44:55 EST 2012,Fri Jan 04 15:19:33 EST 2013,FALSE

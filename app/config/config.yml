@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: ingesters.yml }
 
 framework:
     #esi:             ~
@@ -15,7 +16,9 @@ framework:
     default_locale:  %locale%
     session:
         auto_start:     true
-
+sensio_framework_extra:
+    view:
+        annotations: false
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
@@ -38,7 +41,7 @@ assetic:
 doctrine:
     dbal:
         driver:   %database_driver%
-        host:     %database_host%
+        unix_socket:     %database_socket%
         port:     %database_port%
         dbname:   %database_name%
         user:     %database_user%
@@ -56,3 +59,16 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+    
+fos_rest:
+    service: 
+        view_handler: ndm_try_catch.view_handler
+    view:
+        formats:
+          xml: true
+          json: true
+          js: true
+        mime_types: {'js': ['application/javascript', 'application/javascript+jsonp']}
+    routing_loader:
+        default_format: js

@@ -6,11 +6,58 @@
 
     <parameters>
         <parameter key="ndm_try_catch.model.component_finder.class">NDM\TryCatchBundle\Entity\ComponentRepository</parameter>
+        <parameter key="ndm_try_catch.model.channel_finder.class">NDM\TryCatchBundle\Entity\ChannelRepository</parameter>
+        <parameter key="ndm_try_catch.model.component_channel_finder.class">NDM\TryCatchBundle\Entity\ComponentChannelRepository</parameter>
+        <parameter key="ndm_try_catch.model.release_finder.class">NDM\TryCatchBundle\Entity\PlannedReleaseDateRepositoryRepository</parameter>
+        <parameter key="ndm_try_catch.view.jsonp_handler.class">NDM\TryCatchBundle\View\JsonpHandler</parameter>
     </parameters>
 
     <services>
+        <service id="ndm_try_catch.ingester.filter_date" class="NDM\TryCatchBundle\Ingester\Map\Filter\DateFilter" />
+        <service id="ndm_try_catch.ingester.filter_datetime" class="NDM\TryCatchBundle\Ingester\Map\Filter\DateFilter" />
+        <service id="ndm_try_catch.ingester.filter_string" class="NDM\TryCatchBundle\Ingester\Map\Filter\StringFilter" />
+        <service id="ndm_try_catch.ingester.filter_integer" class="NDM\TryCatchBundle\Ingester\Map\Filter\IntegerFilter" />
+        <service id="ndm_try_catch.ingester.filter_float" class="NDM\TryCatchBundle\Ingester\Map\Filter\FloatFilter" />
+        <service id="ndm_try_catch.ingester.filter_channels" class="NDM\TryCatchBundle\Ingester\Map\Filter\ChannelFilter">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+        
+        <service id="ndm_try_catch.ingester.reader_resolver" class="NDM\TryCatchBundle\Ingester\Reader\ResolvingReader">
+			<argument type="collection">
+				<argument type="service">
+					<service class="NDM\TryCatchBundle\Ingester\Reader\JsonReader" />
+				</argument> 
+				<argument type="service">
+					<service class="NDM\TryCatchBundle\Ingester\Reader\CSVReader" />
+				</argument> 
+			</argument>
+        </service>
+    
+    
+        <service id="ndm_try_catch.view.jsonp_handler" class="%ndm_try_catch.view.jsonp_handler.class%">
+            <argument type="service" id="logger" on-invalid="continue" />
+        </service> 
+        <service id="ndm_try_catch.view_handler" parent="fos_rest.view_handler.default">
+        	<call method="registerHandler">
+        		<argument>js</argument>
+        		<argument type="collection">
+					<argument type="service" id="ndm_try_catch.view.jsonp_handler" />
+					<argument>createResponse</argument>
+				</argument>
+        	</call>
+        </service>
+    
         <service id="ndm_try_catch.model.component_finder" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="%ndm_try_catch.model.component_finder.class%">
             <argument>NDMTryCatchBundle:Component</argument>
+        </service>
+        <service id="ndm_try_catch.model.channel_finder" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="%ndm_try_catch.model.channel_finder.class%">
+            <argument>NDMTryCatchBundle:Channel</argument>
+        </service>
+        <service id="ndm_try_catch.model.component_channel_finder" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="%ndm_try_catch.model.component_channel_finder.class%">
+            <argument>NDMTryCatchBundle:ComponentChannel</argument>
+        </service>
+        <service id="ndm_try_catch.model.release_finder" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="%ndm_try_catch.model.release_finder.class%">
+            <argument>NDMTryCatchBundle:PlannedReleaseDate</argument>
         </service>
     </services>
 </container>

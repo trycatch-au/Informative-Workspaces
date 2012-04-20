@@ -2,6 +2,8 @@
 
 namespace NDM\TryCatchBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,17 +31,35 @@ class Component
     private $name;
 
     /**
-     * @var string $version
+     * @var string $version Represents the latest available version for any environment
      *
      * @ORM\Column(name="version", type="string", length=255)
      */
     private $version;
 
+    /**
+     * @var ArrayCollection $channels
+     *
+     * @ORM\OneToMany(targetEntity="ComponentChannel", mappedBy="component")
+     */
+    private $channels;
+
+	/**
+	 * @var ArrayCollection $components
+	 *
+	 * @ORM\OneToMany(targetEntity="PlannedReleaseDate", mappedBy="component")
+	 */
+	private $releases;
+
+	public function __construct() {
+		$this->channels = new ArrayCollection();
+		$this->releases = new ArrayCollection();
+	}
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -61,7 +81,7 @@ class Component
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -76,6 +96,10 @@ class Component
      */
     public function setVersion($version)
     {
+    	if(!strpos($version, '.')) {
+    		$version = $version . '.0';
+    	}
+
         $this->version = $version;
         return $this;
     }
@@ -83,10 +107,42 @@ class Component
     /**
      * Get version
      *
-     * @return string 
+     * @return string
      */
     public function getVersion()
     {
         return $this->version;
     }
+	/**
+	 * @return ArrayCollection $channels
+	 */
+	public function getChannels() {
+		return $this->channels;
+	}
+
+	/**
+	 * @param \NDM\TryCatchBundle\Entity\ArrayCollection $channels
+	 */
+	public function setChannels(ArrayCollection $channels) {
+		$this->channels = $channels;
+	}
+
+	/**
+	 * @return ArrayCollection $releases
+	 */
+	public function getReleases() {
+		return $this->releases;
+	}
+
+	/**
+	 * @param \NDM\TryCatchBundle\Entity\ArrayCollection $releases
+	 */
+	public function setReleases(ArrayCollection $releases) {
+		$this->releases = $releases;
+	}
+
+	public function __toString() {
+		return $this->getName();
+	}
+
 }

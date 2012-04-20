@@ -1,0 +1,40 @@
+ndm_try_catch:
+  ingesters:
+    -
+      name: incidents
+      class: NDM\TryCatchBundle\Ingester\IssueIngester
+      mappings:
+        -
+          from: name
+          type: string
+        -
+          from: createddate
+          to: createdAt
+          type: datetime
+          
+        -
+          from: priority
+          type: integer
+        -
+          from: closeddate
+          to: closedAt
+          type: datetime
+          
+        -
+          from: id
+          to: uid
+    -
+      name: components
+      class: NDM\TryCatchBundle\Ingester\ComponentIngester
+      mappings:
+        -
+          from: name
+          type: string
+        -
+          from: channels
+          to: channels
+          type: channels
+        -
+          from: version
+          to: version
+          type: float

@@ -1,0 +1,34 @@
+components:
+    resource: "NDM\TryCatchBundle\Controller\ComponentController"
+    type:     rest
+
+channels:
+    resource: "NDM\TryCatchBundle\Controller\ChannelController"
+    type:     rest
+    
+api:
+    resource: "NDM\TryCatchBundle\\Controller\\ApiController"
+    type: rest
+    prefix: /api/
+    
+load_data:
+    resource: "NDM\TryCatchBundle\\Controller\\LoadDataController"
+    type: annotation
+    
+plan_rel:
+    resource: "NDM\TryCatchBundle\\Controller\\PlannedReleaseDateController"
+    type: annotation
+com_chan:
+    resource: "NDM\TryCatchBundle\\Controller\\ComponentChannelController"
+    type: annotation
+
+issues:
+    resource: "NDM\TryCatchBundle\\Controller\\IssueController"
+    type: rest
+
+
+
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal

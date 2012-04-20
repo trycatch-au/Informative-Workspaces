@@ -1,6 +1,5 @@
 NDMTryCatchBundle:
-    resource: "@NDMTryCatchBundle/Controller/"
-    type:     annotation
+    resource: "@NDMTryCatchBundle/Resources/config/routing.yml"
     prefix:   /
 
 # Internal routing configuration to handle ESI

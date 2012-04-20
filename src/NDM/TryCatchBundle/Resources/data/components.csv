@@ -1,0 +1,4 @@
+name, channels,version
+CAM ,dev@2.17.1|uat@2.0.18|prod@3.0.4.1,2.17.1
+Quickeze,dev@1.18.1|uat@1.12.1|prod@1.12.1,1.18.1
+Blogs,dev@1.2.3|uat@1.2.2|prod@1.2.2,1.2-3
