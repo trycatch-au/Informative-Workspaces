@@ -1,0 +1,129 @@
+#doc {
+    margin:auto; /* center in viewport */
+    width: 1920px; /* fix page width */
+    height: 100%;   
+}
+
+html, body {
+    font-family: 'Ostritch Sans Rounded', serif;
+    font-size: 16px;
+    background-color: #ff4f00;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    font-family: 'MelbourneBold', serif;
+    font-size: 250px;
+    color: #501900;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    letter-spacing: 0px;
+}
+
+td {
+    font-family: 'MelbourneBold', serif;
+    font-size: 48px;
+    color: #fff;
+    padding: 4px;
+    margin: 0px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+th {
+    font-family: 'MelbourneRegular', serif;
+    font-size: 24px;
+    padding: 5px;  
+    margin: 0px; 
+}
+
+
+
+p {
+    font-family: 'YWFT Ultramagnetic Light Oblique', serif;
+    font-size: 16px;
+}
+
+#screen_left {
+    background: url(/assets/images/bg_promo_1_red.gif);
+    height: 100%;
+}
+
+#screen_right {
+    height: 100%;
+    background: url(/assets/images/bg_diag_red.gif);
+}
+
+#top {
+    position:absolute;
+    top:0;
+    left:0;
+    background:#222 url(../i/bg-bottom-light.png);
+    height:34px;
+    z-index:999999;
+    width:100%;
+    border-bottom:1px solid #111;
+}
+
+#next_release_block {
+
+}
+
+#release_version {
+    padding: 0px;
+    margin: 0px 0px 0px 23px;
+    width: 520px;
+}
+
+#countdown_days {
+    font-family: 'MelbourneBold', serif;
+    font-size: 90px;
+    color: #fff;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 45px 0px 0px 0px;
+    padding: 40px 20px 40px 20px;
+}
+
+.release_countdown {
+
+}
+
+#deadline_countdown_block {
+
+}
+
+#env_version_block {
+
+}
+
+.digital_clock_small,
+.digital_clock_medium,
+.digital_clock_large
+ {
+    background: url(/assets/images/bg_digital_clock_top.gif);
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    margin: 0px 10px 10px 10px;
+    letter-spacing: 0px;
+    background-repeat:repeat-x;
+}
+
+.digital_clock_medium {
+
+}
+
+.digital_clock_large {
+
+}
+
+.graph_container {
+    padding: 10px;
+    margin: 0px 10px 10px 10px;
+    background-color: #1e1e1e;
+}
+
