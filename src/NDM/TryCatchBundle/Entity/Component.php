@@ -51,6 +51,13 @@ class Component
 	 */
 	private $releases;
 
+	/**
+	 * @var array $lastBuildState
+	 *
+	 * @ORM\Column(name="last_build_state", type="array")
+	 */
+	private $lastBuildState;
+
 	public function __construct() {
 		$this->channels = new ArrayCollection();
 		$this->releases = new ArrayCollection();
@@ -143,6 +150,20 @@ class Component
 
 	public function __toString() {
 		return $this->getName();
+	}
+
+	/**
+	 * @return array $lastBuildState
+	 */
+	public function getLastBuildState() {
+		return $this->lastBuildState;
+	}
+
+	/**
+	 * @param array $lastBuildState
+	 */
+	public function setLastBuildState(array $lastBuildState) {
+		$this->lastBuildState = $lastBuildState;
 	}
 
 }

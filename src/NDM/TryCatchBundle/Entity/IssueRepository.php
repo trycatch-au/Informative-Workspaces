@@ -40,20 +40,24 @@ class IssueRepository extends EntityRepository
 	}
 
 	protected function calculateGraphSummary($open) {
-		$today = new \DateTime();
+		$today = new \DateTime('+2 weeks');
 		$date = new \DateTime('1 month ago');
 		$curOpen = 0;
 
 		while($date < $today) {
+			$closedToday = 0;
 			foreach($open as $i => $item) {
 				if($item->getClosedAt() && $item->getClosedAt()->format('Y-m-d') === $date->format('Y-m-d')) {
-					$curOpen--;
-				}elseif($item->getCreatedAt() && $item->getCreatedAt()->format('Y-m-d') === $date->format('Y-m-d')) {
+					$closedToday--;
+				}
+
+				if($item->getCreatedAt() && $item->getCreatedAt()->format('Y-m-d') === $date->format('Y-m-d')) {
 					$curOpen++;
 				}
 			}
 
 			$dates[$date->format('Y-m-d')] = $curOpen;
+			$curOpen += $closedToday;
 
 			$date = $date->modify('+1 day');
 		}

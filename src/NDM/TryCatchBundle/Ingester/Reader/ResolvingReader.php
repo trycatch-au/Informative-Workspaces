@@ -7,6 +7,7 @@ class ResolvingReader implements Reader{
 	private $readers;
 
 	public function __construct(array $readers = array()) {
+		$this->readers = array();
 		array_map(array($this, 'registerReader'), $readers);
 	}
 
@@ -21,6 +22,9 @@ class ResolvingReader implements Reader{
 
 	public function read(Resource $resource) {
 		$reader = $this->getReaderForResource($resource);
+		if(!$reader) {
+			throw new \InvalidArgumentException('Unable to get reader for resource');
+		}
 
 		return $reader->read($resource);
 	}

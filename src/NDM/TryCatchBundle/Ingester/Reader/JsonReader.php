@@ -2,14 +2,34 @@
 namespace NDM\TryCatchBundle\Ingester\Reader;
 use NDM\TryCatchBundle\Ingester\Resource\Resource;
 
+
+/**
+ * Json Reader
+ *
+ * Removes unnecessary whitespace from a string
+ *
+ * @author David Mann <david.mann@newsdigitalmedia.com.au>
+ * @package TryCatch
+ * @subpackage Ingester
+ */
 class JsonReader implements Reader{
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @see NDM\TryCatchBundle\Ingester\Reader.Reader::read()
+	 */
 	public function read(Resource $resource) {
 		$items = json_decode($resource->getContent(), true);
 
 		return $items;
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @see NDM\TryCatchBundle\Ingester\Reader.Reader::supports()
+	 */
 	public function supports(Resource $resource) {
 		$content = trim($resource->getContent());
 		$firstChar = substr($content, 0, 1);

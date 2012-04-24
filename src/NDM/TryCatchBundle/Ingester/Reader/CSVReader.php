@@ -2,8 +2,22 @@
 namespace NDM\TryCatchBundle\Ingester\Reader;
 use NDM\TryCatchBundle\Ingester\Resource\Resource;
 
-class CSVReader implements Reader{
+/**
+ * Text Cleaner Filter
+ *
+ * Removes unnecessary whitespace from a string
+ *
+ * @author David Mann <david.mann@newsdigitalmedia.com.au>
+ * @package TryCatch
+ * @subpackage Ingester
+ */
+class CSVReader implements Reader {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @see NDM\TryCatchBundle\Ingester\Reader.Reader::read()
+	 */
 	public function read(Resource $resource) {
 		try {
 			$file = new \SplFileObject($resource->getTmpFile(), 'rb');
@@ -33,6 +47,11 @@ class CSVReader implements Reader{
 		return $data;
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @see NDM\TryCatchBundle\Ingester\Reader.Reader::supports()
+	 */
 	public function supports(Resource $resource) {
 		try {
 			$this->read($resource);
