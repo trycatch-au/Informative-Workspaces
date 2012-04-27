@@ -1,9 +1,9 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 
 /**
- * Date Filter
+ * Date Transformer
  *
  * Transforms data from any valid date format into a \DateTime object
  *
@@ -11,7 +11,7 @@ use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
  * @package TryCatch
  * @subpackage Ingester
  */
-class DateFilter {
+class DateTransformer {
 
 	/**
 	 * @param unknown_type $value
@@ -20,18 +20,18 @@ class DateFilter {
 	 * @param ColumnDefinition $to
 	 * @return \DateTime|NULL
 	 */
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to) {
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		try {
 			$date = new \DateTime($value);
 
 			return $date;
 		}catch(\Exception $e) {
-			$value = strtotime($value);
-			if(empty($value)) {
+			$date = strtotime($value);
+			if(empty($date)) {
 				return null;
 			}
 
-			return new \DateTime('@' . $value);
+			return new \DateTime('@' . $date);
 		}
 	}
 }

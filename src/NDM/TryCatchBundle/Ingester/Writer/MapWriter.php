@@ -94,7 +94,7 @@ class MapWriter implements Writer {
 		}
 
 		foreach($to->getFilters() as $filter) {
-			$value = $filter->filter($value, $obj, $record, $to);
+			$value = $filter->transform($value, $obj, $record, $to);
 		}
 
 		$obj->$setter($value);

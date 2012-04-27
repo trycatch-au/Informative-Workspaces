@@ -2,6 +2,8 @@
 
 namespace NDM\TryCatchBundle\Controller;
 
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 use NDM\TryCatchBundle\Entity\Component;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,29 +12,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use FOS\RestBundle\Controller\Annotations as FOS;
 
-
 /**
  * @author davidmann
- *
- * @IgnoreAnnotation("Get")
- * @IgnoreAnnotation("Put")
- * @IgnoreAnnotation("ApiPath")
- * @IgnoreAnnotation("ApiOperation")
- * @IgnoreAnnotation("ApiError")
- * @IgnoreAnnotation("ApiParam")
  */
 class ComponentController extends Controller
 {
 
     /**
-     * @param string $name The name of the component
-     * @return multitype:unknown
+     * @param string $_format The format to return the data in
      *
-     * @Get
-     * @ApiPath /components
-     * @ApiOperation(
-     *     value="Get all of the available componenents",
-     * )
+     * @ApiDoc(
+	 *  resource=true,
+	 *  description="List all of the available component channels"
+	 * )
      *
      * @FOS\View(templateVar="components")
      */
@@ -42,23 +34,16 @@ class ComponentController extends Controller
     }
 
     /**
-     * @param string $name The name of the component
-     * @return multitype:unknown
+     * @param scalar $idOrName The name or id of the component
+     * @param string $_format The format to return the data in
      *
-     * @Get
-     * @ApiPath /components/{idOrName}
-     * @ApiOperation(
-     *     value="Get the details about an available component",
-     * )
-     *
-     * @ApiError(code=400,reason="Invalid name or ID provided")
-     * @ApiParam(
-     *     description="ID or Name of the component to retrieve",
-     *     required=true,
-     *     dataType="mixed",
-     *     name="idOrName"
-     * )
+     * @ApiDoc(
+	 *  resource=true,
+	 *  description="List the details of a single component"
+	 * )
+	 *
      * @FOS\View(templateVar="component")
+     *
      */
     public function getComponentAction($idOrName)
     {
@@ -68,22 +53,14 @@ class ComponentController extends Controller
     }
 
     /**
-     * @param string $name The name of the component
-     * @return multitype:unknown
+     * @param scalar $idOrName The name or id of the component
+     * @param string $_format The format to return the data in
      *
-     * @Get
-     * @ApiPath /components/{idOrName}/channels
-     * @ApiOperation(
-     *     value="Get the channels for a component",
-     * )
-     *
-     * @ApiError(code=400,reason="Invalid name or ID provided")
-     * @ApiParam(
-     *     description="ID or Name of the component to retrieve",
-     *     required=true,
-     *     dataType="mixed",
-     *     name="idOrName"
-     * )
+     * @ApiDoc(
+	 *  resource=true,
+	 *  description="List the channels available to a single component"
+	 * )
+	 *
      * @FOS\View(templateVar="channels")
      */
     public function getComponentChannelsAction($idOrName)
@@ -94,9 +71,13 @@ class ComponentController extends Controller
     }
 
     /**
-     * @param string $name The name of the component
-     * @return multitype:unknown
+     * @param scalar $idOrName The name or id of the component
+     * @param string $_format The format to return the data in
      *
+     * @ApiDoc(
+	 *  resource=true,
+	 *  description="List all of the upcoming release dates for a component"
+	 * )
      *
      * @FOS\View(templateVar="channels")
      */

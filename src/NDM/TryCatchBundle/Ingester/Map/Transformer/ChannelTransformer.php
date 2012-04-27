@@ -1,5 +1,5 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 
 use NDM\TryCatchBundle\Entity;
 use Doctrine\ORM\EntityManager;
@@ -7,7 +7,7 @@ use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Channel Filter
+ * Channel Transformer
  *
  * Transforms data from
  * 'dev@1.0.5|prod@2.0.0' into
@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @package TryCatch
  * @subpackage Ingester
  */
-class ChannelFilter extends CollectionFilter {
+class ChannelTransformer extends CollectionTransformer {
 
 	/**
 	 * @var EntityManager
@@ -35,10 +35,10 @@ class ChannelFilter extends CollectionFilter {
 	/**
 	 * {@inheritdoc}
 	 *
-	 * @see NDM\TryCatchBundle\Ingester\Map\Filter.CollectionFilter::filter()
+	 * @see NDM\TryCatchBundle\Ingester\Map\Transformer.CollectionTransformer::Transformer()
 	 */
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to) {
-		$items = parent::filter($value, $entity, $record, $to);
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
+		$items = parent::transform($value, $entity, $record, $to);
 
 		if(!count($items)) {
 			return new ArrayCollection();

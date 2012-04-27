@@ -21,6 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('ndm_try_catch');
 
         $rootNode
+        	->addDefaultsIfNotSet()
         	->children()
 				->arrayNode('ingesters')
 					->useAttributeAsKey('name')
@@ -38,16 +39,16 @@ class Configuration implements ConfigurationInterface
         								}
 
         								if(isset($v['type'])) {
-        									$v['filters'] = isset($v['filters']) && $v['filters'] ? array_merge(array($v['type']), $v['filters']) : array($v['type']);
+        									$v['transformers'] = isset($v['transformers']) && $v['transformers'] ? array_merge(array($v['type']), $v['transformers']) : array($v['type']);
+        									unset($v['type']);
         								}
 
 			        					return $v;
 			        				})->end()
 		        					->children()
-		        						->scalarNode('type')->end()
-		        						->scalarNode('from')->end()
-		        						->scalarNode('to')->defaultValue('string')->end()
-		        						->arrayNode('filters')
+		        						->scalarNode('from')->isRequired()->end()
+		        						->scalarNode('to')->end()
+		        						->arrayNode('transformers')
 		        							->defaultValue(array())
 		        							->prototype('scalar')->end()
 		        						->end()

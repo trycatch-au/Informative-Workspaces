@@ -55,9 +55,9 @@ class MapWriterTest extends \PHPUnit_Framework_TestCase {
 	public function testFilteredWrite() {
 		$date = new \DateTime('2012-04-20');
 
-		$filterMock = $this->getMock('NDM\TryCatchBundle\Ingester\Map\Filter\Filter');
+		$filterMock = $this->getMock('NDM\TryCatchBundle\Ingester\Map\Transformer\Transformer');
 		$filterMock->expects($this->exactly(1))
-			->method('filter')
+			->method('transform')
 			->with('2012-04-20')
 			->will($this->returnValue($date))
 		;

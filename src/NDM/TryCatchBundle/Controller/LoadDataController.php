@@ -2,7 +2,7 @@
 namespace NDM\TryCatchBundle\Controller;
 
 
-use NDM\TryCatchBundle\Ingester\Map\Filter\ChannelFilter;
+use NDM\TryCatchBundle\Ingester\Map\Transformer\ChannelFilter;
 
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 

@@ -1,8 +1,8 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 
 /**
- * StringFilter
+ * StringTransformer
  *
  * Transforms data to it's string equivelant
  *
@@ -10,9 +10,9 @@ namespace NDM\TryCatchBundle\Ingester\Map\Filter;
  * @package TryCatch
  * @subpackage Ingester
  */
-class StringFilter {
+class StringTransformer {
 
-	public function filter($value) {
+	public function transform($value) {
 		return strval($value);
 	}
 

@@ -1,10 +1,10 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 
 /**
- * Integer Filter
+ * Integer Transformer
  *
  * Transforms data to an integer
  *
@@ -12,8 +12,8 @@ use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
  * @package TryCatch
  * @subpackage Ingester
  */
-class IntegerFilter {
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to) {
+class IntegerTransformer {
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		return intval($value);
 	}
 }

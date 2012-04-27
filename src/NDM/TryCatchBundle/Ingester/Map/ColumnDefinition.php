@@ -1,8 +1,8 @@
 <?php
 namespace NDM\TryCatchBundle\Ingester\Map;
-use NDM\TryCatchBundle\Ingester\Map\Filter\Filter;
+use NDM\TryCatchBundle\Ingester\Map\Transformer\Transformer;
 
-use NDM\TryCatchBundle\Ingester\Map\Filter\TextCleanerFilter;
+use NDM\TryCatchBundle\Ingester\Map\Transformer\TextCleanerTransformer;
 
 /**
  * Column Definition
@@ -60,7 +60,7 @@ class ColumnDefinition {
 		}
 
 		if(count($filters) === 0) {
-			$filters = array(new TextCleanerFilter());
+			$filters = array(new TextCleanerTransformer());
 		}
 
 

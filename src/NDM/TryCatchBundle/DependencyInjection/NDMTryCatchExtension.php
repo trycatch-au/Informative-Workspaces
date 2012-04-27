@@ -3,13 +3,9 @@
 namespace NDM\TryCatchBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-
 use Symfony\Component\DependencyInjection\Reference;
-
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
-
 use Symfony\Component\DependencyInjection\Definition;
-
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -52,24 +48,24 @@ class NDMTryCatchExtension extends Extension
     	if(isset($ingester['mappings'])) {
     		$writer = new Definition('NDM\\TryCatchBundle\\Ingester\\Writer\\MapWriter');
     		foreach($ingester['mappings'] as $mapping) {
-    			foreach($mapping['filters'] as $i => $filter) {
-    				if(!is_string($filter)) {
+    			foreach($mapping['transformers'] as $i => $transformer) {
+    				if(!is_string($transformer)) {
     					continue;
 
     				}
-    				$filterId = sprintf('ndm_try_catch.ingester.filter_%s', $filter);
+    				$transformerId = sprintf('ndm_try_catch.ingester.transformer_%s', $transformer);
 
-    				if(!$container->hasDefinition($filterId)) {
-    					throw new ServiceNotFoundException($filterId);
+    				if(!$container->hasDefinition($transformerId)) {
+    					throw new ServiceNotFoundException($transformerId);
     				}
 
-    				$mapping['filters'][$i] = new Reference($filterId);
+    				$mapping['transformers'][$i] = new Reference($transformerId);
     			}
 
     			$colDefArgs = array(
     				$mapping['from'],
     				$mapping['to'],
-    				$mapping['filters'],
+    				$mapping['transformers'],
     			);
 				$colDef = new Definition('NDM\\TryCatchBundle\\Ingester\\Map\\ColumnDefinition', $colDefArgs);
 				$writer->addMethodCall('registerColumnDefinition', array($colDef));

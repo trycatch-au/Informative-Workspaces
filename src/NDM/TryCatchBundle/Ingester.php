@@ -26,9 +26,6 @@ abstract class Ingester {
 
 		foreach($records as $i => $record) {
 			$entity = $this->getExisting($record);
-			if(count($this->om->getUnitOfWork()->size()) > 0) {
-				$this->om->flush();
-			}
 
 			$records[$i] = array($entity, $record);
 		}

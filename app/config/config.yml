@@ -72,3 +72,5 @@ fos_rest:
         mime_types: {'js': ['application/javascript', 'application/javascript+jsonp']}
     routing_loader:
         default_format: js
+
+nelmio_api_doc: ~

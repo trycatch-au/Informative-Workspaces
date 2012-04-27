@@ -13,12 +13,12 @@
     </parameters>
 
     <services>
-        <service id="ndm_try_catch.ingester.filter_date" class="NDM\TryCatchBundle\Ingester\Map\Filter\DateFilter" />
-        <service id="ndm_try_catch.ingester.filter_datetime" class="NDM\TryCatchBundle\Ingester\Map\Filter\DateFilter" />
-        <service id="ndm_try_catch.ingester.filter_string" class="NDM\TryCatchBundle\Ingester\Map\Filter\StringFilter" />
-        <service id="ndm_try_catch.ingester.filter_integer" class="NDM\TryCatchBundle\Ingester\Map\Filter\IntegerFilter" />
-        <service id="ndm_try_catch.ingester.filter_float" class="NDM\TryCatchBundle\Ingester\Map\Filter\FloatFilter" />
-        <service id="ndm_try_catch.ingester.filter_channels" class="NDM\TryCatchBundle\Ingester\Map\Filter\ChannelFilter">
+        <service id="ndm_try_catch.ingester.transformer_date" class="NDM\TryCatchBundle\Ingester\Map\Transformer\DateTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_datetime" class="NDM\TryCatchBundle\Ingester\Map\Transformer\DateTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_string" class="NDM\TryCatchBundle\Ingester\Map\Transformer\StringTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_integer" class="NDM\TryCatchBundle\Ingester\Map\Transformer\IntegerTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_float" class="NDM\TryCatchBundle\Ingester\Map\Transformer\FloatTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_channels" class="NDM\TryCatchBundle\Ingester\Map\Transformer\ChannelTransformer">
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
         

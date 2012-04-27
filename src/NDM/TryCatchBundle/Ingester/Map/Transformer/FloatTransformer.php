@@ -1,10 +1,10 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 
 /**
- * Float Filter
+ * Float Transformer
  *
  * Transforms data to a float
  *
@@ -12,8 +12,8 @@ use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
  * @package TryCatch
  * @subpackage Ingester
  */
-class FloatFilter {
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to) {
+class FloatTransformer {
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		return (float) $value;
 	}
 }

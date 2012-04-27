@@ -22,7 +22,7 @@ class ComponentIngester extends Ingester {
 		if(!$entity) {
 			$entity = new Component();
 			$entity->setName($record['name']);
-			$entity->setVersion($record['version']);
+			$entity->setVersion(isset($record['version']) ? $record['version'] : 'unknown');
 			$this->om->persist($entity);
 		}
 

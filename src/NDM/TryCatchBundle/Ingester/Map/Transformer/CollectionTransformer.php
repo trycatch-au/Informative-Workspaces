@@ -1,12 +1,12 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
- * Collection Filter
+ * Collection Transformer
  *
  * Transforms data from
  * 'foo|bar' into array('foo', 'bar');
@@ -15,9 +15,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @package TryCatch
  * @subpackage Ingester
  */
-class CollectionFilter implements Filter {
+class CollectionTransformer implements Transformer {
 	const REGEX_SPLIT = '#(?<!\\\)\\|#';
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to) {
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		if(!is_string($value)) {
 			return $value;
 		}

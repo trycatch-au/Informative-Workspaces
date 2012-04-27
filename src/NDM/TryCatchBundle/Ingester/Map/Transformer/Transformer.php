@@ -1,29 +1,29 @@
 <?php
-namespace NDM\TryCatchBundle\Ingester\Map\Filter;
+namespace NDM\TryCatchBundle\Ingester\Map\Transformer;
 use NDM\TryCatchBundle\Ingester\Map\ColumnDefinition;
 
 /**
- * Contract for a Filter to implement
+ * Contract for a Transformer to implement
  *
- * A filter is a class which is capable of transforming / filtering the data
+ * A Transformer is a class which is capable of transforming / Transformering the data
  * that is being remapped.
  *
- * Filters imply that the value must be of a certain format and when a filter
+ * Transformers imply that the value must be of a certain format and when a Transformer
  * recieves an invalid value, it should return null.
  *
  * @author David Mann <david.mann@newsdigitalmedia.com.au>
  * @package TryCatch
  * @subpackage Ingester
  */
-interface Filter {
+interface Transformer {
 
 	/**
-	 * Filter the column data
+	 * Transformer the column data
 	 *
-	 * @param mixed $value The value to filter
+	 * @param mixed $value The value to Transformer
 	 * @param mixed $entity The database entity being ingested (May or may not exist in DB)
 	 * @param array $record The raw reader record being ingested
 	 * @param ColumnDefinition $to The column definition
 	 */
-	public function filter($value, $entity, array $record = array(), ColumnDefinition $to);
+	public function transform($value, $entity, array $record = array(), ColumnDefinition $to);
 }
