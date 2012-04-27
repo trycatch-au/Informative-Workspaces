@@ -1,5 +1,7 @@
 <?php
 
+use NDM\Bundle\TryCatch\ApiBundle\TryCatchApiBundle;
+
 use Nelmio\ApiDocBundle\NelmioApiDocBundle;
 
 use RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle;
@@ -33,8 +35,9 @@ class AppKernel extends Kernel
             new FOSRestBundle(),
             new JMSSerializerBundle($this),
             new RaulFraileLadybugBundle(),
-            new NDM\TryCatchBundle\NDMTryCatchBundle(),
-            new NelmioApiDocBundle()
+            new NelmioApiDocBundle(),
+            new TryCatchApiBundle(),
+            new NDM\Bundle\TryCatch\DashboardBundle\TryCatchDashboardBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
