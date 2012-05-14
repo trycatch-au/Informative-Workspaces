@@ -24,6 +24,13 @@ try_catch_api:
           from: id
           to: uid
     -
+      name: channels
+      class: NDM\Bundle\TryCatch\ApiBundle\Ingester\InstanceIngester
+      mappings:
+        -
+          from: name
+          type: string
+    -
       name: components
       class: NDM\Bundle\TryCatch\ApiBundle\Ingester\ComponentIngester
       mappings:

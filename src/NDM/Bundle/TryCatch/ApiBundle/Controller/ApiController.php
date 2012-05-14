@@ -33,6 +33,8 @@ class ApiController extends Controller {
 			$ingester = 'incidents';
 		}elseif($type === 'components') {
 			$ingester = 'components';
+		}elseif($type === 'instances') {
+			$ingester = 'channels';
 		}else{
 			throw $this->createNotFoundException('Invalid ingestment type');
 		}
