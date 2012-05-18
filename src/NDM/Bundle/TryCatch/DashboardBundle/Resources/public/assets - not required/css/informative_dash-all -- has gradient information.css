@@ -1,0 +1,756 @@
+        .alpha30 { /* slightly opaque background colour */
+            /* Fallback for web browsers that doesn't support RGBa */
+            background: rgb(178, 178, 178);
+            /* RGBa with 0.6 opacity */
+            background: rgba(0, 0, 0, 0.3);
+            /* For IE 5.5 - 7*/
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000);
+            /* For IE 8*/
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000)";
+
+            /* pro-tip: 
+             * to calculate the hex value of the rgba for opacity in IE, run
+             *
+             *      Math.floor([opacity] * 255).toString(16) 
+             *
+             * in your JS console! 
+             */ 
+        }
+
+        header, footer {display: none;} /* may be used for notifications in the future */
+
+        div.clear {clear:both;}
+
+        div.section {clear:both; height: 20%; border-bottom: 1px solid #fff; padding-bottom: 15px;}
+        div.section h1 { 
+            color: #fff; 
+            padding: 10px 0 0 10px;
+            font-size: 200%;
+        }
+
+        body.noinfo {background-color: #ccc;}  /* this should never occur! */
+        body.panic {background-color: #8b0000;} /* darkred */      
+        body.worry {background-color: #ff8c00;} /* darkorange */
+        body.normal {background-color: forestgreen;} /* forestgreen */
+
+        #tables { width: 100%; float: none; clear:both}
+        #graphs { width: 100%; float: none; clear:both}
+
+        #tables table td div.openIssues { width: 59%; float: left; padding: 10px 0;}
+        #tables table td div.hoursIssues { width: 39%; float: right; text-align: center; padding: 10px 0;}
+        #tables table td div.openIssues div.issuesCount { float: left; margin-right: 25px; margin-left: 10px; margin-right: 50px;}
+
+        #tables table td div.openIssues div.priority {text-align: center; width: 2em;float: left; font-size: 90%; margin-left: 15px; outline: 1px solid #fff; font-weight: bold;}
+        #tables table td div.openIssues div.priority.p1 { background: red;}
+        #tables table td div.openIssues div.priority.p2 { background: darkorange;}
+        #tables table td div.openIssues div.priority.p3 { background: lightsteelblue;}
+        #tables table td div.openIssues div.priority.p4 { background: blue;}
+
+        #build_status {
+            clear:both; 
+            margin-top: 10px;
+        } 
+        #bamboo_status {
+            clear:both;
+            margin-top: 10px;
+        }
+        #next_release {
+            padding-top: 25px;
+            width: 49%; 
+            float: left; 
+            clear: none; 
+            padding: 0;
+            position: relative;
+        }
+
+        #release_name {
+            width: 100%; 
+            color: #fff; 
+            font-weight: bold; 
+            font-size: 500%;
+        }
+
+        #countdown_days {
+            background: #333;
+            opacity : .7;
+            color: #fff;
+         /*   padding: 10px;
+            margin: 15px 10px 0 10px; */
+        }
+
+        .round-corners {
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        /* 
+            The CSS below reproduces the original gradient from the events banner on the prototype. It was not fun to make, so I don't want to have to rebuild it for later.
+        */
+        #release_info_old {
+            height: auto;
+            background: 
+            -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(9%,rgba(0,0,0,0)), color-stop(9%,rgba(0,0,0,0.2)), color-stop(28%,rgba(0,0,0,0.2)), color-stop(28%,rgba(0,0,0,0)), color-stop(39%,rgba(0,0,0,0)), color-stop(39%,rgba(0,0,0,0.2)), color-stop(41.5%,rgba(0,0,0,0.2)), color-stop(41.5%,rgba(0,0,0,0.3)), color-stop(47%,rgba(0,0,0,0.3)), color-stop(47%,rgba(0,0,0,0.4)), color-stop(54%,rgba(0,0,0,0.4)), color-stop(54%,rgba(0,0,0,0.3)), color-stop(82.5%,rgba(0,0,0,0.3)), color-stop(82.5%,rgba(0,0,0,0.2)), color-stop(86%,rgba(0,0,0,0.2)), color-stop(86%,rgba(0,0,0,0.1)), color-stop(92%,rgba(0,0,0,0.1)), color-stop(92%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); 
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 9%, rgba(0,0,0,0.2) 9%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 39%, rgba(0,0,0,0.2) 39%, rgba(0,0,0,0.2) 41.5%, rgba(0,0,0,0.3) 41.5%, rgba(0,0,0,0.3) 47%, rgba(0,0,0,0.4) 47%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.3) 54%, rgba(0,0,0,0.3) 82.5%, rgba(0,0,0,0.2) 82.5%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0.1) 86%, rgba(0,0,0,0.1) 92%, rgba(0,0,0,0) 92%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); 
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 9%, rgba(0,0,0,0.2) 9%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 39%, rgba(0,0,0,0.2) 39%, rgba(0,0,0,0.2) 41.5%, rgba(0,0,0,0.3) 41.5%, rgba(0,0,0,0.3) 47%, rgba(0,0,0,0.4) 47%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.3) 54%, rgba(0,0,0,0.3) 82.5%, rgba(0,0,0,0.2) 82.5%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0.1) 86%, rgba(0,0,0,0.1) 92%, rgba(0,0,0,0) 92%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); 
+            background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 9%, rgba(0,0,0,0.2) 9%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 39%, rgba(0,0,0,0.2) 39%, rgba(0,0,0,0.2) 41.5%, rgba(0,0,0,0.3) 41.5%, rgba(0,0,0,0.3) 47%, rgba(0,0,0,0.4) 47%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.3) 54%, rgba(0,0,0,0.3) 82.5%, rgba(0,0,0,0.2) 82.5%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0.1) 86%, rgba(0,0,0,0.1) 92%, rgba(0,0,0,0) 92%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); 
+            background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 9%, rgba(0,0,0,0.2) 9%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 39%, rgba(0,0,0,0.2) 39%, rgba(0,0,0,0.2) 41.5%, rgba(0,0,0,0.3) 41.5%, rgba(0,0,0,0.3) 47%, rgba(0,0,0,0.4) 47%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.3) 54%, rgba(0,0,0,0.3) 82.5%, rgba(0,0,0,0.2) 82.5%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0.1) 86%, rgba(0,0,0,0.1) 92%, rgba(0,0,0,0) 92%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); 
+            background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 9%, rgba(0,0,0,0.2) 9%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 39%, rgba(0,0,0,0.2) 39%, rgba(0,0,0,0.2) 41.5%, rgba(0,0,0,0.3) 41.5%, rgba(0,0,0,0.3) 47%, rgba(0,0,0,0.4) 47%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.3) 54%, rgba(0,0,0,0.3) 82.5%, rgba(0,0,0,0.2) 82.5%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0.1) 86%, rgba(0,0,0,0.1) 92%, rgba(0,0,0,0) 92%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); 
+        } 
+
+        #release_info {
+            height: auto;
+            position: relative;
+            background-color: transparent;
+            background-image: -webkit-gradient(
+            linear, /* the style of the gradient */
+            0 0,  /* the start point of the gradient */
+            100% 100%,  /* the end-point of the gradient */
+            color-stop(.10, rgba(0, 0, 0, .2)), color-stop(.10, transparent), color-stop(.15, transparent), color-stop(.15, rgba(0, 0, 0, .2)), 
+            color-stop(.25, rgba(0, 0, 0, .2)), color-stop(.25, transparent), color-stop(.30, transparent), color-stop(.30, rgba(0, 0, 0, .2)), 
+            color-stop(.40, rgba(0, 0, 0, .2)), color-stop(.40, transparent), color-stop(.45, transparent), color-stop(.45, rgba(0, 0, 0, .2)), 
+            color-stop(.55, rgba(0, 0, 0, .2)), color-stop(.55, transparent), color-stop(.60, transparent), color-stop(.60, rgba(0, 0, 0, .2)), 
+            color-stop(.70, rgba(0, 0, 0, .2)), color-stop(.70, transparent), color-stop(.75, transparent), color-stop(.75, rgba(0, 0, 0, .2)), 
+            color-stop(.85, rgba(0, 0, 0, .2)), color-stop(.85, transparent), color-stop(.90, transparent), color-stop(.90, rgba(0, 0, 0, .2)), 
+            color-stop(1.00, rgba(0, 0, 0, .2)), color-stop(1.00, transparent), to(transparent));
+            background-image: 
+            -webkit-linear-gradient(
+            -45deg,  /* the angle of the linear gradient*/
+            rgba(0, 0, 0, .2) 10%, 
+            /* this is a color-stop. This one tells the browser to render the gradient in white with 30% opacity, and make it 10% wide */
+            transparent 10%, 
+            /* another color-stop. This one is transparent for 10% of the width. By making these two start at the same point, we have sharp lines */
+            transparent 15%, rgba(0, 0, 0, .2) 15%, 
+            /* this is a combination of the two. In each couplet the roles are reversed, to allow sharp edges all around */
+            rgba(0, 0, 0, .2) 25%, transparent 25%, 
+            transparent 30%, rgba(0, 0, 0, .2) 30%, 
+            rgba(0, 0, 0, .2) 40%, transparent 40%, 
+            transparent 45%, rgba(0, 0, 0, .2) 45%, 
+            rgba(0, 0, 0, .2) 55%, transparent 55%, 
+            transparent 60%, rgba(0, 0, 0, .2) 60%, 
+            rgba(0, 0, 0, .2) 70%, transparent 70%, 
+            transparent 75%, rgba(0, 0, 0, .2) 75%, 
+            rgba(0, 0, 0, .2) 85%, transparent 85%, 
+            transparent 90%, rgba(0, 0, 0, .2) 90%, 
+            rgba(0, 0, 0, .2) 100%, transparent 100%, 
+            transparent
+            );
+            background-image: -moz-linear-gradient(-45deg,  rgba(0, 0, 0, .2) 10%, transparent 10%, transparent 15%, rgba(0, 0, 0, .2) 15%, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 30%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .2) 40%, transparent 40%, transparent 45%, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .2) 55%, transparent 55%, transparent 60%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, .2) 70%, transparent 70%, transparent 75%, rgba(0, 0, 0, .2) 75%, rgba(0, 0, 0, .2) 85%, transparent 85%, transparent 90%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, .2) 100%, transparent 100%, transparent);
+            background-image: -ms-linear-gradient(-45deg, rgba(0, 0, 0, .2) 10%, transparent 10%, transparent 15%, rgba(0, 0, 0, .2) 15%, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 30%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .2) 40%, transparent 40%, transparent 45%, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .2) 55%, transparent 55%, transparent 60%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, .2) 70%, transparent 70%, transparent 75%, rgba(0, 0, 0, .2) 75%, rgba(0, 0, 0, .2) 85%, transparent 85%, transparent 90%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, .2) 100%, transparent 100%, transparent);
+            background-image: -o-linear-gradient(-45deg, rgba(0, 0, 0, .2) 10%, transparent 10%, transparent 15%, rgba(0, 0, 0, .2) 15%, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 30%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .2) 40%, transparent 40%, transparent 45%, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .2) 55%, transparent 55%, transparent 60%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, .2) 70%, transparent 70%, transparent 75%, rgba(0, 0, 0, .2) 75%, rgba(0, 0, 0, .2) 85%, transparent 85%, transparent 90%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, .2) 100%, transparent 100%, transparent);
+            background-image: linear-gradient(-45deg, rgba(0, 0, 0, .2) 10%, transparent 10%, transparent 15%, rgba(0, 0, 0, .2) 15%, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 30%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .2) 40%, transparent 40%, transparent 45%, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .2) 55%, transparent 55%, transparent 60%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, .2) 70%, transparent 70%, transparent 75%, rgba(0, 0, 0, .2) 75%, rgba(0, 0, 0, .2) 85%, transparent 85%, transparent 90%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, .2) 100%, transparent 100%, transparent);
+        }
+
+
+
+        #deadlines div.inset {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        #deadlines dt, #deadlines dd { 
+            margin: 0 0 10px 0; 
+            white-space: nowrap; 
+            display: block; 
+            float: none; 
+            clear: none; 
+            text-align: left; 
+            width: auto; 
+            margin: 0; 
+            padding: 0; 
+        } 
+
+        #deadlines dt.heading, 
+        #deadlines dd.heading {
+            /* the second heading for the environments */
+            display: none;
+        }
+
+        #deadlines dt {
+            color: #efefef;
+            font-size: 230%;
+        }
+
+        #deadlines dl {
+            background-color: transparent; 
+            padding: 5px 0;
+        }
+        #deadlines dd {
+            color: #fff;
+        }
+
+        #deadlines dd span {
+            color: #aaa;
+        }
+        #deadlines .hasCountdown {
+        }
+        #deadlines .hasCountdown.expired {
+            color: #f00;
+        }
+
+        #online_status_inner {
+            color: #fff; 
+            margin: 0 10px; 
+            clear: both; 
+            overflow: hidden;
+            margin-top: -25px;
+        }
+
+        #bamboo_status_inner {
+            margin: 0 10px;
+            padding: 15px;
+        }
+
+        #bamboo_status_inner .build_element {
+            width: 24%;
+            float: left;
+            margin-left: 1%;
+            margin-bottom: 15px;
+        }
+        #bamboo_status_inner .build_element .component_name {
+            width: 100%;
+            outline: 1px solid #fff;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        #bamboo_status_inner .build_element .component_details {
+            margin: 0 10px;
+            border: 1px solid #fff;
+            border-top: 0;
+        }
+
+        #bamboo_status_inner .build_element .component_details.build_status { /* a default value, if it is not passed through */
+            background-color: #333;
+        }
+
+        #bamboo_status_inner .build_element .component_details.success {
+            background-color: #1b6f1a;
+        }
+        #bamboo_status_inner .build_element .component_details.fail {
+            background-color: #6e0000;
+        }
+        #bamboo_status_inner .build_element .component_details.building {
+            background-color: #005fbf;
+        }
+
+        #bamboo_status_inner .build_element .component_details dl {
+            margin: 0;
+            padding: 10px;
+        }
+        #bamboo_status_inner .build_element .component_details dt {
+            color: #fff;
+            clear:left;
+        }
+        #bamboo_status_inner .build_element .component_details dd {
+            color: #fff;
+            clear:right;
+        }
+        
+
+        #online_status ul, 
+        #online_status ul li {
+            list-style: none; 
+            padding-left: 0; 
+            margin-left: 0; 
+            overflow:hidden;
+            white-space: nowrap;
+        }
+
+        #online_status td.current_version {
+            font-weight: normal;
+            color: #fff;
+        }
+        
+        .no_version {
+            /* de-emphasize information for compenents not installed in certain channels */
+            color: #777;
+        } 
+
+        #online_status td {
+            line-height: 140%;
+        }
+
+        #online_status td.current_version {
+            font-weight: bold;
+        }
+
+        #online_status td.old_version {
+            /* highlights channels where the installed version is out of date (not latest point release in nexus) */
+            color: #ddd;
+            font-weight: normal;
+        }
+        #online_status td.very_old_version {
+        /* highlights channels where the installed version is extremely out of date (full version lower than latest in nexus) */
+            color: #ddd;
+            font-weight: normal;
+        }
+
+        #online_status td.very_old_version.prod, #online_status td.old_version.prod {
+            color: #fff;
+        }
+
+        #online_status table tr:nth-child(odd) {
+            /* zebra striping */
+            /* Fallback for web browsers that doesn't support RGBa */
+            background: rgb(0, 0, 0);
+            /* RGBa with 0.6 opacity */
+            background: rgba(0, 0, 0, 0.3);
+            /* For IE 5.5 - 7*/
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000);
+            /* For IE 8*/
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000)";
+
+            /* pro-tip: 
+             * to calculate the hex value of the rgba for opacity in IE, run
+             *      Math.floor([opacity] * 255).toString(16) 
+             * in your JS console! 
+             */ 
+
+        }
+        #online_status table thead tr:nth-child(1) {
+            background-color: transparent; 
+        }
+
+        #online_status table tfoot #component_rotator { text-align: center;}
+
+        #online_status ul {
+            float: left; 
+            width: 30%;
+            margin: 10px 0 10px 0;
+        } 
+    
+        #online_status ul li.leader {
+            color: #aaa;
+        }
+    
+        #online_status ul.environments {
+            padding-left: 5%; 
+            color: #aaa;
+        }
+                #online_status ul.environments li.leader {
+            color:transparent;
+        }
+
+        #release_info { 
+            width: 100%;
+            clear: both; 
+            padding-bottom: 20px;
+        } 
+
+        #call_stats {
+            /* hide graph by default. Only show graphing in desktop */
+/*            display: none; */
+        }
+
+        /* styles for the new issues table */
+                table.issues_table { width: 100%; border-spacing: 4px; border-collapse: separate;}
+                table.issues_table thead td {font-size: 180%; color: #fff; padding: 4px 10px;}
+                table.issues_table tbody td {border-bottom: 1px solid #ccc; font-size: 150%;}
+                table.issues_table tbody td.issue_priority { width: 45px; border: 1px solid #fff; text-align: center; padding: 5px 0; color: #fff; font-weight: bold;}
+                table.issues_table tbody td.issue_priority.p1 { background-color: red;}
+                table.issues_table tbody td.issue_priority.p2 { background-color: darkorange;}
+                table.issues_table tbody td.issue_priority.p3 { background-color: lightsteelblue;}
+                table.issues_table tbody td.issue_priority.p4 { background-color: blue;}
+                table.issues_table tbody td.issue_number { width: 45px; text-align: center; font-weight: bold; padding: 5px; color: #fff;}
+                table.issues_table tbody td.issue_description { color: #fff; overflow:hidden;}
+                table.issues_table tbody td.issue_assigned { color: #fff;}
+        /* styles for the new issues table */
+
+div#open_issues {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000; width: 49%; float: left;}
+div#open_hours {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000;width: 49%; float: right;}
+
+        @media only screen and (min-width: 1080px) and (-webkit-min-device-pixel-ratio: 2){
+            /* ipad three stuff. needs touch controls, but high resolution */
+        }
+        
+        @media only screen and (min-width: 800px) and (max-width: 15080px){
+            /* for everything up to a 1080p display in landscape mode */
+            #build_status { float: left; width: 100%; clear:none;}
+            #bamboo_status { float: left; width: 100%; clear:none;}
+            #online_status ul {float: left; width: 9%; }
+            #online_status ul.environments {padding-left: 2%; }
+
+            #next_release { float: none; clear: right; width: 100%;}
+            #release_information { float: left; width: 30%;}
+            #release_name_wrapper, #countdown_days_wrapper { width: 100%;}
+            #deadlines {float: left; width: 69%; margin-top: -30px; height: 100%;}
+            #deadlines dl { width: 100%;}
+            #call_stats {
+                display: block;
+                color: #fff; 
+                margin: 15px 10px; 
+                clear: both; 
+                overflow: hidden;
+                }
+                
+                #online_status  div.error, 
+                #call_stats.error {
+                padding: 20px;
+                text-align: center;
+                }
+
+            /* 
+                The CSS below will break the components lists into one "environment" and 8 "channels" per line.
+                Please don't edit the expressions in the nth-child selectors unless you know how they work.
+                Each selector is commented so you can tell what is being targeted.            
+                */
+                #online_status ul {position: relative; overflow:visible; width: 100%;}
+                #online_status ul.environments li { position: relative; overflow: visible; outline: 1px solid red; float: left; clear: none;}
+                #online_status ul li { position: relative; overflow: visible; outline: 1px solid red; float: left; clear: none;}
+                #online_status ul li { position: relative; overflow: visible; outline: 1px solid yellow;}
+                #online_status ul { clear: both;}
+
+                table.environmentsTable {
+                    border-collapse: collapse;
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+
+                body.panic table.environmentsTable thead td.leader {color: transparent;}
+
+                table.environmentsTable thead td.leader  {
+                color: transparent;
+                width: 37.5%;
+                }
+
+                table.environmentsTable tfoot td {
+                    height: 15px;
+                }
+                table.environmentsTable td {
+                    margin: 0;
+                    overflow:hidden;
+                    padding-left: 5px;
+                    width: 12.5%;
+                }
+                table.environmentsTable td.leader.building { 
+                    background-color: blue;
+                    position: relative;
+                }
+                table.environmentsTable td.leader.building code.building { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative;} 
+
+                table.environmentsTable td.leader.failed code.failed { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative; padding-left: 25px; text-decoration: blink;} 
+                table.environmentsTable td.leader.failed {                    
+                    background-color: darkred;
+                }
+                
+
+/* sets up blink animation. transitions from 100% visible to completely clear */
+@-webkit-keyframes blinker {  
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+@-moz-keyframes blinker {  
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+/* // end blink animation */
+
+/* 
+animation that emulates a typing system.
+realistically this is simply a covering element that is slowly made smaller to reveal text underneath */
+@-webkit-keyframes typing {
+    0% {width: 100%}
+    80% {width: 0%}
+    100% {width: 0%}
+}
+@-moz-keyframes typing {
+    0% {width: 100%}
+    80% {width: 0%}
+    100% {width: 0%}
+}
+/* // end typing animation */
+
+/*
+this animation emulates the blinking of the cursor text.
+realistically it's just turning the border of the covering div on and off */
+@-webkit-keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+@-moz-keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+/* // end blinking caret */
+
+.css3-blink {
+    /* runs the blinker animation once per second, forever */
+    -webkit-animation: blinker 1s cubic-bezier(1.0,0,0,1.0) infinite;
+    -moz-animation: blinker 1s cubic-bezier(1.0,0,0,1.0) infinite;
+    animation: blinker 1s cubic-bezier(1.0,0,0,1.0) infinite;
+}			
+
+
+table.environmentsTable td.leader.building code.building span {
+    /* defines the position fo the covering element for the typing animation. 
+    Then runs the animation over 4 seconds, looping infinitely.
+    The blinking caret (seconds) should be the multiplier for the steps to arrive at the duration */
+    position:absolute;
+    right: 0;
+    top: 10px; /* this has to match any padding on the element with the cursor */
+    width: 0; 
+    background: blue; /* same as background */
+    color: #fff;
+    border-left: .1em solid white;
+    font-family: monospace;
+    color: transparent;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    -webkit-animation: typing 4s steps(8, end) infinite, /* # of steps = # of characters */ 
+                        blink-caret 0.5s step-end infinite;
+    -moz-animation: typing 4s steps(8, end), /* # of steps = # of characters */
+                        blink-caret 0.5s step-end infinite;
+} 
+
+table.environmentsTable td.leader.failed code.failed::before {
+    /* generates an exclamation point for a failed build. must be in a separate pseudo element because the border property is used for the rest of the 'sign'.*/
+    content: "!";
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    font-weight: bold;
+    color: #000;
+    z-index: 2;
+}
+
+table.environmentsTable td.leader.failed code.failed::after {
+    /* generates a triangle using border manipulation */
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+    border-width: 0 14px 24px;
+    border-style: solid;
+    border-color: #F8D201 transparent;
+    margin-top: -10px;
+    background: transparent;
+}
+
+
+                table.environmentsTable td.non_core { color: #aaa;}
+                div.rotate_navigation {text-align: center;}
+                div.rotate_navigation span.environment_rotate { letter-spacing: 1em; color: #aaa; font-weight: normal; text-align: center;}
+                div.rotate_navigation span.environment_rotate.active { color: #fff; font-weight: bold;}
+                
+
+                    
+
+
+                .rotateGroup {display:none;}
+                .rotateGroup.active { display: table-cell;}
+            #online_status_table { display: block;}
+            #online_status_list { display: none;}
+            #online_status_table td {font-size: xx-large;}
+        }
+
+        @media only screen and (min-width: 480px) and (max-width: 799px) { /* almost all current tablets sit between 600px and 800px wide */
+
+            #next_release { width: 100%;}
+
+            div.section h1 { font-size: 150%;}
+
+            #deadlines dt.heading, #deadlines dd.heading  {display: none;}
+            #release_name_wrapper, #countdown_days_wrapper { width: 100%;}
+            #release_name { float: left; width: 30%;}
+            #deadlines {float: left; width: 69%; margin-top: -30px; height: 100%;}
+            #deadlines dl { width: 100%;}
+            
+            #online_status ul.environments { color: #000;line-height: 150%; width: 20%;}
+            #online_status ul.channel { color: #000; color: #fff; font-weight: normal; line-height: 150%;  width: 35%;}
+            #online_status ul li.leader { color: #000; }
+            #online_status ul li.leader div {width: 100%;}
+            #online_status ul li { white-space: nowrap;}
+
+
+            ul.environments li:nth-child(even), ul.channel li:nth-child(even) {
+            /* Fallback for web browsers that doesn't support RGBa */
+            background: rgb(0, 0, 0);
+            /* RGBa with 0.6 opacity */
+            background: rgba(0, 0, 0, 0.3);
+            /* For IE 5.5 - 7*/
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000);
+            /* For IE 8*/
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000)";
+
+            /* pro-tip: 
+             * to calculate the hex value of the rgba for opacity in IE, run
+             *      Math.floor([opacity] * 255).toString(16) 
+             * in your JS console! 
+             */ 
+                
+}
+            #online_status_table { display: block;}
+            #online_status_list { display: none;}
+
+            #online_status_list ul.channel li.leader, #online_status_list ul.environments li.leader  {
+                height: 35px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            #online_status_list ul.channel li.failed {
+                 color: #ccc; 
+                 background-color: darkred;
+            }
+
+            #online_status_list ul.channel li.building { 
+                color: #ccc; 
+                background-color: blue;
+            } 
+
+                            table.environmentsTable {
+                    border-collapse: collapse;
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+
+              
+                body.panic table.environmentsTable thead td.leader {color: transparent;}
+
+                table.environmentsTable thead td.leader  {
+                color: transparent;
+                width: 37.5%;
+                }
+
+                table.environmentsTable tfoot td {
+                    height: 15px;
+                }
+                table.environmentsTable td {
+                    margin: 0;
+                    overflow:hidden;
+                    padding-left: 5px;
+                    width: 12.5%;
+                }
+                table.environmentsTable td.leader.building { 
+                    background-color: blue;
+                    position: relative;
+                }
+                table.environmentsTable td.leader.building code.building { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative;} 
+
+                table.environmentsTable td.leader.failed code.failed { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative; padding-left: 25px; text-decoration: blink;} 
+                table.environmentsTable td.leader.failed {                    
+                    background-color: darkred;
+                }
+
+                #online_status_inner { margin-top: 0;}
+
+            #tables { width: 100%; clear: both; float: none;}
+            #graphs { width: 80%; clear:both; float: none; margin: 20px auto 0 auto;}
+
+        /* styles for the new issues table */
+                table.issues_table { width: 100%; border-spacing: 4px; border-collapse: separate;}
+                table.issues_table thead td {font-size: 120%; color: #fff; padding: 4px 10px;}
+                table.issues_table tbody td {border-bottom: 1px solid #ccc; font-size: small;}
+                table.issues_table tbody td.issue_priority { width: 45px; border: 1px solid #fff; text-align: center; padding: 5px 0; color: #fff; font-weight: bold;}
+                table.issues_table tbody td.issue_priority.p1 { background-color: red;}
+                table.issues_table tbody td.issue_priority.p2 { background-color: darkorange;}
+                table.issues_table tbody td.issue_priority.p3 { background-color: blue;}
+                table.issues_table tbody td.issue_priority.p4 { background-color: lightsteelblue;}
+                table.issues_table tbody td.issue_number { width: 45px; text-align: center; font-weight: normal; padding: 5px; color: #fff; font-size: small;}
+                table.issues_table tbody td.issue_description {}
+                table.issues_table tbody td.issue_assigned { color: #fff;}
+        /* styles for the new issues table */                                    
+div#open_issues {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000; width: 100%; float: none; clear:both; margin-bottom: 15px;}
+div#open_hours {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000;width: 100%; float: none; clear:both; margin-bottom: 15px;}
+
+            #deadlines dt { font-size: 120%; margin-bottom: 10px;}
+
+            #tables table td div.openIssues div.priority {text-align: center; width: 1.5em; float: left; font-size: 90%;outline: 1px solid #fff; font-weight: bold; height: 1em; margin-top: 0.25em;}
+            #tables table td div.openIssues div.priority.p1 { background: red;}
+            #tables table td div.openIssues div.priority.p2 { background: darkorange;}
+            #tables table td div.openIssues div.priority.p3 { background: lightsteelblue;}
+            #tables table td div.openIssues div.priority.p4 { background: blue;}
+            
+            #tables table td div.openIssues {padding:0}
+            #tables table td div.hoursIssues { text-align: center; line-height: 1.5em; padding: 0;}
+            #tables table td div.openIssues div.issuesCount { text-align: left;text-align: center; line-height: 1.5em; margin:0;}
+
+        }
+
+        @media only screen and (max-width: 479px) {
+            div.section h1 { font-size: 110%;}
+            #deadlines dt.heading, #deadlines dd.heading  {display: none;}
+            #next_release { width: auto; float: none; clear:both;}
+            #online_status ul.environments { line-height: 150%; width: 20%;}
+            #online_status ul.channel {color: #fff; font-weight: normal; line-height: 150%;  width: 35%;}
+            #online_status ul li.leader div {width: 100%;}
+            #online_status ul li { white-space: nowrap;}
+
+
+/*            ul.environments li, ul.channel li { font-size: x-large;} */
+            ul.environments li:nth-child(even), ul.channel li:nth-child(even) {
+            /* Fallback for web browsers that doesn't support RGBa */
+            background: rgb(0, 0, 0);
+            /* RGBa with 0.6 opacity */
+            background: rgba(0, 0, 0, 0.3);
+            /* For IE 5.5 - 7*/
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000);
+            /* For IE 8*/
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000, endColorstr=#4c000000)";
+
+            /* pro-tip: 
+             * to calculate the hex value of the rgba for opacity in IE, run
+             *      Math.floor([opacity] * 255).toString(16) 
+             * in your JS console! 
+             */ 
+            }
+
+            #deadlines dt { font-size: 120%; margin-bottom: 10px;}
+
+            #tables table td div.openIssues div.issuesCount { float: none; clear: both; margin: 0 0 10px 0; text-align: center;}
+
+
+            #online_status_table { display: none;}
+            #online_status_list { display: block;}
+
+            #online_status_list ul.channel li.leader, #online_status_list ul.environments li.leader  {
+                line-height: 35px;
+            }
+
+
+
+            #online_status_list ul.channel li.failed {
+                 color: #ccc; 
+                 background-color: darkred;
+            }
+
+            #online_status_list ul.channel li.building { 
+                color: #ccc; 
+                background-color: blue;
+            } 
+
+            #tables { width: 100%; clear: both; float: none;}
+            #graphs { width: 80%; clear:both; float: none; margin: 20px auto 0 auto;}
+
+        /* styles for the new issues table */
+                table.issues_table { width: 100%; border-spacing: 4px; border-collapse: separate;}
+                table.issues_table thead td {font-size: 120%; color: #fff; padding: 4px 10px;}
+                table.issues_table tbody td {border-bottom: 1px solid #ccc; font-size: small;}
+                table.issues_table tbody td.issue_priority { width: 19%; border: 1px solid #fff; text-align: center; padding: 5px 0; color: #fff; font-weight: bold;}
+                table.issues_table tbody td.issue_priority.p1 { background-color: red;}
+                table.issues_table tbody td.issue_priority.p2 { background-color: darkorange;}
+                table.issues_table tbody td.issue_priority.p3 { background-color: lightsteelblue;}
+                table.issues_table tbody td.issue_priority.p4 { background-color: blue;}
+                table.issues_table tbody td.issue_number { width: 45px; text-align: center; font-weight: normal; padding: 5px; color: #fff; font-size: small;}
+                #tables table td div.openIssues div.issuesCount { text-align: center; line-height: 1.5em;}
+                #tables table td div.hoursIssues   {line-height: 1.5em;}
+                table.issues_table tbody td.issue_assigned { color: #fff;}
+                #tables table td div.openIssues div.priority {float:none; text-align: center; width: 1.5em; font-size: 90%;outline: 1px solid #fff; font-weight: bold; display: inline-block;}
+                #tables table td div.openIssues div.priority.p1 { background: red;}
+                #tables table td div.openIssues div.priority.p2 { background: darkorange;}
+                #tables table td div.openIssues div.priority.p3 { background: lightsteelblue;}
+                #tables table td div.openIssues div.priority.p4 { background: blue;}
+
+
+        /* styles for the new issues table */
+                div.issuesPriorityWrapper { margin: 0 auto; text-align: center; width: 100%;}
+div#open_issues {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000; width: 100%; float: none; clear:both; margin-bottom: 15px;}
+div#open_hours {height: 250px; border-bottom: 3px solid #000; border-left: 3px solid #000;width: 100%; float: none; clear:both; margin-bottom: 15px;}
+
+        } /* end "@media only screen and (max-width: 480px)" */
+
+

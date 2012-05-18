@@ -19,8 +19,8 @@
         "sensio/generator-bundle": "dev-master",
         "jms/security-extra-bundle": "1.1.0",
         "jms/di-extra-bundle": "1.0.1",
-        "raulfraile/LadybugBundle": "dev-master",,
-        "nelmio/api-doc-bundle": "dev-master"
+        "raulfraile/LadybugBundle": "dev-master",
+        "nelmio/api-doc-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master"
     },
     "scripts": {

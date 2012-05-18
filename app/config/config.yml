@@ -41,7 +41,7 @@ assetic:
 doctrine:
     dbal:
         driver:   %database_driver%
-        unix_socket:     %database_socket%
+        host:     %database_host%
         port:     %database_port%
         dbname:   %database_name%
         user:     %database_user%
@@ -73,4 +73,4 @@ fos_rest:
     routing_loader:
         default_format: js
 
-nelmio_api_doc: ~
+#nelmio_api_doc: ~
