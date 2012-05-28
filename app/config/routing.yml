@@ -1,0 +1,17 @@
+TryCatchDashboardBundle:
+    resource: "@TryCatchDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /dash/
+
+TryCatchApiBundle:
+    resource: "@TryCatchApiBundle/Resources/config/routing.yml"
+    prefix:   /api/
+
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

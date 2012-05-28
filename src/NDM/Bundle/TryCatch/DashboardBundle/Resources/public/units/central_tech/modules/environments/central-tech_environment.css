@@ -1,0 +1,71 @@
+/* CSS rules for styling the environments section of the central-tech dashboard */
+#build_status {clear:both; margin-top: 10px;} 
+#online_status_inner {color: #fff; margin: 0 10px; clear: both; overflow: hidden;margin-top: -25px;}
+#online_status ul, 
+#online_status ul li {list-style: none; padding-left: 0; margin-left: 0; overflow:hidden;white-space: nowrap;}
+#online_status td.current_version {font-weight: normal;color: #fff;}
+.no_version {/* de-emphasize information for compenents not installed in certain channels */color: #777;} 
+#online_status td {line-height: 140%;}
+#online_status td.old_version {/* highlights channels where the installed version is out of date (not latest point release in nexus) */color: #ddd; font-weight: normal;}
+#online_status td.very_old_version {/* highlights channels where the installed version is extremely out of date (full version lower than latest in nexus) */color: #ddd;font-weight: normal;}
+#online_status td.very_old_version.prod, #online_status td.old_version.prod {color: #fff;}
+#online_status table thead tr:nth-child(1) {background-color: transparent;}
+#online_status table tfoot #component_rotator {text-align: center;}
+#online_status ul {float: left; width: 30%;margin: 10px 0 10px 0;} 
+#online_status ul li.leader {color: #fff;}
+#online_status ul.environments {padding-left: 5%; color: #fff;}
+#online_status ul.environments li.leader {/* hides the heading for the thead part of the environments table */color:transparent;}        
+
+@media only screen and (min-width: 1080px) and (-webkit-min-device-pixel-ratio: 2){
+    /* ipad three stuff. needs touch controls, but high resolution */
+}
+
+@media only screen and (min-width: 800px) and (max-width: 15080px){
+    #build_status { float: left; width: 100%; clear:none;}    
+    table.environmentsTable {border-collapse: collapse;margin-bottom: 10px;width: 100%;}
+    body.panic table.environmentsTable thead td.leader {color: transparent;}
+    table.environmentsTable thead td.leader  {color: transparent;width: 37.5%;}
+    table.environmentsTable tfoot td {height: 15px;}
+    table.environmentsTable td {margin: 0;overflow:hidden;padding-left: 5px;width: 12.5%;}
+    table.environmentsTable td.leader.building { background-color: blue;position: relative;}
+    table.environmentsTable td.leader.building code.building { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative;} 
+    table.environmentsTable td.leader.failed code.failed { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative; padding-left: 25px; text-decoration: blink;} 
+    table.environmentsTable td.leader.failed {background-color: darkred;}
+    table.environmentsTable td.non_core { color: #aaa;}
+    #online_status ul {float: left; width: 9%; }
+    #online_status ul.environments {padding-left: 2%; }
+    #online_status_table { display: block;}
+    #online_status_list { display: none;}
+    #online_status_table td {font-size: xx-large;}    
+}
+
+@media only screen and (min-width: 480px) and (max-width: 799px) { /* almost all current tablets sit between 600px and 800px wide */
+    #online_status_table { display: block;}
+    #online_status_list { display: none;}
+    #online_status_list ul.channel li.leader, #online_status_list ul.environments li.leader {height: 35px;white-space: nowrap;overflow: hidden;}
+    #online_status_list ul.channel li.failed {color: #ccc; background-color: darkred;}
+    #online_status_list ul.channel li.building { color: #ccc; background-color: blue;} 
+    table.environmentsTable {border-collapse: collapse;margin-bottom: 10px;width: 100%;}
+    body.panic table.environmentsTable thead td.leader {color: transparent;}
+    table.environmentsTable thead td.leader  {color: transparent;width: 37.5%;}
+    table.environmentsTable tfoot td {height: 15px;}
+    table.environmentsTable td {margin: 0;overflow:hidden;padding-left: 5px;width: 12.5%;}
+    table.environmentsTable td.leader.building { background-color: blue;position: relative;}
+    table.environmentsTable td.leader.building code.building { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative;} 
+    table.environmentsTable td.leader.failed code.failed { display: block; float: right; font-family: monospace; color: #ccc; padding-top: 10px; margin-right: 20px; position: relative; padding-left: 25px; text-decoration: blink;} 
+    table.environmentsTable td.leader.failed {background-color: darkred;}
+    #online_status_inner { margin-top: 0;}
+}
+
+@media only screen and (max-width: 479px) {
+    #online_status ul.environments { line-height: 150%; width: 20%;}
+    #online_status ul.channel {color: #fff; font-weight: normal; line-height: 150%;  width: 35%;}
+    #online_status ul li.leader div {width: 100%;}
+    #online_status ul li { white-space: nowrap;}    
+    #online_status_table { display: none;}
+    #online_status_list { display: block;}
+    #online_status_list ul.channel li.leader, #online_status_list ul.environments li.leader  {line-height: 35px;}
+    #online_status_list ul.channel li.failed {color: #ccc; background-color: darkred;}
+    #online_status_list ul.channel li.building {color: #ccc; background-color: blue;}     
+    .no_version {/* de-emphasize information for compenents not installed in certain channels */color: #ccc;} 
+}

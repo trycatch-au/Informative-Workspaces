@@ -1,0 +1,12 @@
+app/Resources/docs/coverage
+.DS_Store
+.buildpath
+.settings
+.project
+web/bundles/
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+vendor/
+composer.phar
