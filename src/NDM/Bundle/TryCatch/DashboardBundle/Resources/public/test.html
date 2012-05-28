@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <style type="text/css">
+            body { background-color: #000; font-family: helvetica, tahoma, arial, sans-serif; padding: 20px; background: url('images/red_door_tile.png') 0% 0% #000;}
+            body div.wrapper { 
+                padding: 30px; 
+                border: 1px solid rgba(0,0,0,0.5);
+            }
+            .clearGlass {
+                background: rgba(178,178,178,0.25);
+                border-radius: 10px 10px 2px 2px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.5), 
+                    inset 0 1px rgba(255,255,255,0.3), 
+                    inset 0 10px rgba(255,255,255,0.2), 
+                    inset 0 10px 20px rgba(255,255,255,0.25), 
+                    inset 0 -15px 30px rgba(0,0,0,0.3);
+                -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), 
+                    inset 0 1px rgba(255,255,255,0.3), 
+                    inset 0 10px rgba(255,255,255,0.2), 
+                    inset 0 10px 20px rgba(255,255,255,0.25), 
+                    inset 0 -15px 30px rgba(0,0,0,0.3);
+                -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), 
+                    inset 0 1px rgba(255,255,255,0.3), 
+                    inset 0 10px rgba(255,255,255,0.2), 
+                    inset 0 10px 20px rgba(255,255,255,0.25), 
+                    inset 0 -15px 30px rgba(0,0,0,0.3);
+                -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), 
+                    inset 0 1px rgba(255,255,255,0.3), 
+                    inset 0 10px rgba(255,255,255,0.2), 
+                    inset 0 10px 20px rgba(255,255,255,0.25), 
+                    inset 0 -15px 30px rgba(0,0,0,0.3);
+            }
+            .htcStyleGlass {
+                background: rgba(178,178,178,0.25);
+                border-radius: 18px;
+                -webkit-border-radius: 18px;
+                -moz-border-radius: 18px;
+                box-shadow: inset 0 -180px rgba(0,0,0,0.25), 
+                    inset 3px 3px 1px rgba(255,255,255,0.5), 
+                    inset -3px -3px 1px rgba(0,0,0,0.33), 
+                    inset 0 40px 50px rgba(255,255,255,0.66), 
+                    0 1px 20px rgba(0,0,0,0.5);
+                -o-box-shadow: inset 0 -180px rgba(0,0,0,0.25), 
+                    inset 3px 3px 1px rgba(255,255,255,0.5), 
+                    inset -3px -3px 1px rgba(0,0,0,0.33), 
+                    inset 0 40px 50px rgba(255,255,255,0.66), 
+                    0 1px 20px rgba(0,0,0,0.5);
+                -webkit-box-shadow: inset 0 -180px rgba(0,0,0,0.25), 
+                    inset 3px 3px 1px rgba(255,255,255,0.5), 
+                    inset -3px -3px 1px rgba(0,0,0,0.33), 
+                    inset 0 40px 50px rgba(255,255,255,0.66), 
+                    0 1px 20px rgba(0,0,0,0.5);
+                -moz-box-shadow: inset 0 -180px rgba(0,0,0,0.25), 
+                    inset 3px 3px 1px rgba(255,255,255,0.5), 
+                    inset -3px -3px 1px rgba(0,0,0,0.33), 
+                    inset 0 40px 50px rgba(255,255,255,0.66), 
+                    0 1px 20px rgba(0,0,0,0.5);
+            }
+
+            div.components { background: transparent;}
+            div.components div.component { color: #fff; padding: 1px; white-space: nowrap; overflow:hidden;}
+            div.components div.component div.leader, div.components div.component div.environments div.version { background: rgba(0, 0, 0, 0.6); padding: 5px 0.25%; overflow:hidden; font-weight: bold;}
+            div.components div.component div.leader {text-transform: uppercase; letter-spacing: 0.15em; font-weight: bold; text-align: left; display: inline-block; width: 35%;}
+            div.components div.component div.environments {display: inline-block; width: 65%;}
+            div.components div.component div.version {display: inline-block; width: 19%; margin-left: 1px; text-align: center;}
+
+/*            div.components div.component.failed { background: red;}
+            div.components div.component.building { background: blue;} */
+        </style>
+    </head>
+    <body>
+        <div class="wrapper htcStyleGlass">
+
+        <div class="components">
+            <div class="component header">
+                <div class="leader">Component</div>
+                <div class="environments">
+                    <div class="version core DEV">DEV</div>
+                    <div class="version core SIT1">SIT1</div>
+                    <div class="version core SIT2">SIT2</div>
+                    <div class="version core PC-UAT">PC-UAT</div>
+                    <div class="version core PROD">PROD</div>
+                </div>
+                
+            </div>
+            <div class="component fatwire building">
+                <div class="leader success">Fatwire </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">9.22</div>
+                    <div class="version old_version core  SIT1">9.1.3</div>
+                    <div class="version old_version core  SIT2">9.1.3</div>
+                    <div class="version old_version core  PC-UAT">9.0.22</div>
+                    <div class="version old_version core prod PROD">9.0.22</div>
+                </div>
+            </div>
+            <div class="component quickeze failed">
+                <div class="leader success">QuickEze </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">12.1</div>
+                    <div class="version old_version core  SIT1">12.0</div>
+                    <div class="version very_old_version core  SIT2">11.8</div>
+                    <div class="version very_old_version core  PC-UAT">11.8</div>
+                    <div class="version very_old_version core prod PROD">11.7</div>      
+                </div>
+            </div>
+            <div class="component external_search">
+                <div class="leader success">Search (External) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">6.1</div>
+                    <div class="version very_old_version core  SIT1">5.9</div>
+                    <div class="version old_version core  SIT2">6.0</div>
+                    <div class="version very_old_version core  PC-UAT">5.9</div>
+                    <div class="version very_old_version core prod PROD">5.7.3</div>      
+                </div>
+                
+            </div>
+            <div class="component feedhouse_search">
+                <div class="leader success">Search (Feedhouse) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">6.1</div>
+                    <div class="version very_old_version core  SIT1">5.9</div>
+                    <div class="version old_version core  SIT2">6.0</div>
+                    <div class="version very_old_version core  PC-UAT">5.9</div>
+                    <div class="version very_old_version core prod PROD">5.7.3</div>      
+                </div>
+            </div>
+            <div class="component cam">
+                <div class="leader success">CAM </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">25.8.4</div>
+                    <div class="version old_version core  SIT1">25.8.1</div>
+                    <div class="version old_version core  SIT2">25.8.1</div>
+                    <div class="version old_version core  PC-UAT">25.7.1</div>
+                    <div class="version very_old_version core prod PROD">23.1.3</div>      
+                </div>
+            </div>
+            <div class="component vcms">
+                <div class="leader success">VCMS </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">9.1.3</div>
+                    <div class="version old_version core  SIT1">9.0.22</div>
+                    <div class="version old_version core  SIT2">9.0.22</div>
+                    <div class="version old_version core  PC-UAT">9.0.22</div>
+                    <div class="version old_version core prod PROD">9.0.22</div>      
+                </div>
+            </div>
+            <div class="component internal_search">
+                <div class="leader success">Search (Internal) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">9.1.3</div>
+                    <div class="version old_version core  SIT1">9.0.22</div>
+                    <div class="version old_version core  SIT2">9.0.22</div>
+                    <div class="version old_version core  PC-UAT">9.0.22</div>
+                    <div class="version old_version core prod PROD">9.0.22</div>      
+                </div>
+            </div>
+            <div class="component feedhouse">
+                <div class="leader success">Feedhouse </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">1.4</div>
+                    <div class="version current_version core  SIT1">1.4</div>
+                    <div class="version current_version core  SIT2">1.4</div>
+                    <div class="version current_version core  PC-UAT">1.4</div>
+                    <div class="version current_version core prod PROD">1.4</div>          
+                </div>
+            </div>
+            <div class="component dapi">
+                <div class="leader success">DAPI </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">1.4</div>
+                    <div class="version current_version core  SIT1">1.4</div>
+                    <div class="version current_version core  SIT2">1.4</div>
+                    <div class="version current_version core  PC-UAT">1.4</div>
+                    <div class="version current_version core prod PROD">1.4</div>          
+                </div>
+            </div>
+            <div class="component ecs_sops">
+                <div class="leader success">SOPS (ECS) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">1.4</div>
+                    <div class="version current_version core  SIT1">1.4</div>
+                    <div class="version current_version core  SIT2">1.4</div>
+                    <div class="version current_version core  PC-UAT">1.4</div>
+                    <div class="version current_version core prod PROD">1.4</div>          
+                </div>
+            </div>
+            <div class="component uss_sops">
+                <div class="leader success">SOPS (USS) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">1.4</div>
+                    <div class="version current_version core  SIT1">1.4</div>
+                    <div class="version current_version core  SIT2">1.4</div>
+                    <div class="version current_version core  PC-UAT">1.4</div>
+                    <div class="version current_version core prod PROD">1.4</div>                          
+                </div>
+            </div>
+            <div class="component essweb_sops">
+                <div class="leader success">SOPS (ESSWEB) </div>
+                <div class="environments">
+                    <div class="version current_version core latest truth first build DEV">1.4</div>
+                    <div class="version current_version core  SIT1">1.4</div>
+                    <div class="version current_version core  SIT2">1.4</div>
+                    <div class="version current_version core  PC-UAT">1.4</div>
+                    <div class="version current_version core prod PROD">1.4</div>          
+                </div>
+            </div>
+        </div>
+        </div> <!-- // .wrapper -->
+    </body>
+</html>
+
