@@ -1,8 +1,8 @@
 var dataSources = {
     /* SEE: http://api.trycatch.com.au/app_dev.php/api/doc/ for full API documentation */
-    "components"    : "http://trycatch.dev/api/components",
-    "channels"      : "http://trycatch.dev/api/channels",
-    "graphSummary" : "http://trycatch.dev/api/issues/graph"
+    "components"    : "http://informative.news.newslimited.local/api/components",
+    "channels"      : "http://informative.news.newslimited.local/api/channels",
+    "graphSummary" : "http://informative.news.newslimited.local/api/issues/graph"
 },
     priorityStatus = ["normal", "panic", "worry", "normal", "normal", "noinfo"], // we only need to flag p1 or p2 issues.
     useApi = useApi,
