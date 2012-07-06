@@ -31,6 +31,26 @@ try_catch_api:
           from: name
           type: string
     -
+      name: builds
+      class: NDM\Bundle\TryCatch\ApiBundle\Ingester\BuildIngester
+      mappings:
+        -
+          from: component
+          to: name
+          type: string
+        -
+          from: building
+          to: isBuilding
+          type: boolean
+        -
+          from: lastbuild
+          to: lastBuildDate
+          type: datetime
+        -
+          from: state
+          to: lastBuildStatus
+          type: boolean
+    -
       name: components
       class: NDM\Bundle\TryCatch\ApiBundle\Ingester\ComponentIngester
       mappings:

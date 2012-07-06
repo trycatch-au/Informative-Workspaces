@@ -2,6 +2,8 @@
 
 namespace NDM\Bundle\TryCatch\ApiBundle\Controller;
 
+use Symfony\Component\DependencyInjection\Container;
+
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\Response;
 use NDM\Bundle\TryCatch\ApiBundle\Ingester\Resource\StringResource;
@@ -29,14 +31,9 @@ class ApiController extends Controller {
 	 * )
 	 */
 	public function postIngestAction($type) {
-		if($type === 'incidents') {
-			$ingester = 'incidents';
-		}elseif($type === 'components') {
-			$ingester = 'components';
-		}elseif($type === 'instances') {
-			$ingester = 'channels';
-		}else{
-			throw $this->createNotFoundException('Invalid ingestment type');
+		$ingester = $this->get(sprintf('ndm_try_catch.%s_ingester', $type), Container::NULL_ON_INVALID_REFERENCE);
+		if($ingester === null) {
+			throw $this->createNotFoundException(sprintf('Invalid ingester "%s"', $type), $e);
 		}
 
 		$data = stripslashes($_POST['data']);
@@ -45,7 +42,7 @@ class ApiController extends Controller {
 			throw $this->createNotFoundException('Invalid ingestment data');
 		}
 
-		$ingested = $this->get(sprintf('ndm_try_catch.%s_ingester', $ingester))->ingest(new StringResource($data));
+		$ingested = $ingester->ingest(new StringResource($data));
 
 		$this->getDoctrine()->getEntityManager()->flush();
 

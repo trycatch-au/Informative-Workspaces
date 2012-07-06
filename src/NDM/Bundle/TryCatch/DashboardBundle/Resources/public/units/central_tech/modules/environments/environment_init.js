@@ -1,6 +1,6 @@
 (function() {
     var dataSources = {
-            "components"    : "http://trycatch.dev/api/components.js"
+            "components"    : "http://informative.news.newslimited.local/api/components.js"
         },
         $moduleName = "environments",
         $modules = $modules || window.$modules || {},

@@ -14,6 +14,7 @@
 
     <services>
         <service id="ndm_try_catch.ingester.transformer_date" class="NDM\Bundle\TryCatch\ApiBundle\Ingester\Map\Transformer\DateTransformer" />
+        <service id="ndm_try_catch.ingester.transformer_boolean" class="NDM\Bundle\TryCatch\ApiBundle\Ingester\Map\Transformer\BooleanTransformer" />
         <service id="ndm_try_catch.ingester.transformer_datetime" class="NDM\Bundle\TryCatch\ApiBundle\Ingester\Map\Transformer\DateTransformer" />
         <service id="ndm_try_catch.ingester.transformer_string" class="NDM\Bundle\TryCatch\ApiBundle\Ingester\Map\Transformer\StringTransformer" />
         <service id="ndm_try_catch.ingester.transformer_integer" class="NDM\Bundle\TryCatch\ApiBundle\Ingester\Map\Transformer\IntegerTransformer" />
