@@ -1,6 +1,7 @@
 {
     "name": "symfony/framework-standard-edition",
     "description": "TryCatch API",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "": "src/" }
     },
