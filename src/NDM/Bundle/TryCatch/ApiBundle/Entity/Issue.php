@@ -22,7 +22,7 @@ class Issue {
 	/**
 	 * @var string $name
 	 *
-	 * @ORM\Column(name="name", type="string", length=255)
+	 * @ORM\Column(name="name", type="string", length=255, nullable=true)
 	 */
 	private $name;
 
@@ -36,7 +36,7 @@ class Issue {
 	/**
 	 * @var datetime $createdAt
 	 *
-	 * @ORM\Column(name="createdAt", type="datetime")
+	 * @ORM\Column(name="createdAt", type="datetime", nullable=true)
 	 */
 	private $createdAt;
 

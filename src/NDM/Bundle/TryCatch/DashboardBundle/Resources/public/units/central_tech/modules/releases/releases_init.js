@@ -1,5 +1,5 @@
 (function(){
-    var dataSource = 'http://trycatch.dev/api/releases',
+    var dataSource = 'http://informative.news.newslimited.local/api/releases',
         $moduleName = 'releases',
         $modules = $modules || window.$modules || {},
         $dash = $dash || $.getUrlVar('dash'),

@@ -166,4 +166,22 @@ class Component
 		$this->lastBuildState = $lastBuildState;
 	}
 
+	public function setIsBuilding($state = true) {
+		$this->lastBuildState['building'] = $state;
+
+		return $this;
+	}
+
+	public function setLastBuildDate(\DateTime $date) {
+		$this->lastBuildState['date'] = $date;
+
+		return $this;
+	}
+
+	public function setLastBuildStatus($state) {
+		$this->lastBuildState['status'] = $state;
+
+		return $this;
+	}
+
 }

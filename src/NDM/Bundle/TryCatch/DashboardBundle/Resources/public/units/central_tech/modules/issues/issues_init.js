@@ -1,7 +1,7 @@
 (function() {
     var dataSources = {
-        "graphSummary"  : "http://trycatch.dev/api/issues/graph",
-        "issues"        : "http://trycatch.dev/api/issues"
+        "graphSummary"  : "http://informative.news.newslimited.local/api/issues/graph",
+        "issues"        : "http://informative.news.newslimited.local/api/issues"
         }, 
         priorityStatus = ["normal", "panic", "worry", "normal", "normal", "noinfo"], // we only need to show differences for P1 and P2 status issues being in play.
         ajaxDataType = 'jsonp',
