@@ -17,6 +17,6 @@ class ComponentRepository extends EntityRepository
 {
 
 	public function findAllAsArray() {
-		return $this->createQueryBuilder('c')->select('c', 'ch', 'chan')->innerJoin('c.channels', 'ch')->innerJoin('ch.channel', 'chan')->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
+		return $this->createQueryBuilder('c')->select('c', 'ch', 'chan', 'rel')->innerJoin('c.channels', 'ch')->innerJoin('ch.channel', 'chan')->innerJoin('c.releases', 'rel')->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
 	}
 }

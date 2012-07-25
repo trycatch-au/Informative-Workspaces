@@ -50,6 +50,7 @@ class IssueController extends Controller {
 	 * @FOS\View(templateVar="issues")
 	 */
 	public function getIssuesGraphAction() {
+		return array(array('asd'));
 		return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->getGraphSummary();
 	}
 

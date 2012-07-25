@@ -13,7 +13,13 @@ use Doctrine\ORM\Query;
 class IssueRepository extends EntityRepository
 {
 	public function findAllAsArray() {
-		return $this->createQueryBuilder('i')->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
+		$qb = $this->createQueryBuilder('i');;
+		$qb->orderBy($qb->expr()->asc('i.priority'));
+
+		return $qb
+		    ->getQuery()
+    		->execute(array(), Query::HYDRATE_ARRAY)
+		;
 	}
 
 	public function getGraphSummary() {
