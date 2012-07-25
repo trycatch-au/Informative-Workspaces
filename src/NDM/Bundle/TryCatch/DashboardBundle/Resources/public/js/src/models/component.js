@@ -1,9 +1,13 @@
-define(['Backbone', 'models/componentchannel'], function(Backbone, ComponentChannel) {
+define(['Backbone', 'models/componentchannel', 'models/release'], function(Backbone, ComponentChannel, Release) {
 	window.Component = Backbone.RelationalModel.extend({
 	    relations: [{
 	        type: Backbone.HasMany,
 	        key: 'channels',
 	        relatedModel: 'ComponentChannel'
+	    }, {
+	        type: Backbone.HasMany,
+	        key: 'releases',
+	        relatedModel: 'Release'
 	    }],
 	    
 	    getVersionForChannel: function(name) {

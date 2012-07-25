@@ -1,12 +1,11 @@
 
-define(['text!components/upcoming/templates/upcoming.tpl'], function(tpl) {
-	var render = function() {
+define(['collections/releases', 'text!components/upcoming/templates/upcoming.tpl'], function(ReleaseCollection, tpl) {
+	var render = function(release) {
 			return _.template(tpl, {
-				releases: {
-					upcoming: 'asd'
-				}
+				release: release
 			})
 		},
+		releases = new ReleaseCollection(),
 		target;
 
 	return {
@@ -21,7 +20,9 @@ define(['text!components/upcoming/templates/upcoming.tpl'], function(tpl) {
 		},
 		
 		refresh: function() {
-			target.html(render());
+			releases.getUpcoming(function(release){ 
+				target.html(render(release));
+			});
 
 			return this;
 		},

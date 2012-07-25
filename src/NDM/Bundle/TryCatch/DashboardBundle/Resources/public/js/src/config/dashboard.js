@@ -3,9 +3,9 @@ define([], function() {
 
 	return {
 		getComponents: function(cb) {
-			require(['components/upcoming/main', 'components/components/main'], function() {
+			require(['components/upcoming/main', 'components/components/main', 'components/issuelist/main', 'components/issuegraph/main'], function() {
 				components = arguments;
-				cb(components);
+				cb(arguments);
 			})
 			return components;
 		},
