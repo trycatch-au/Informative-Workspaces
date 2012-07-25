@@ -27,6 +27,9 @@ class JsonpHandler {
      */
     public function createResponse(ViewHandlerInterface $handler, View $view, Request $request)
     {
+    	if($request->get('_format') !== 'jsonp') {
+    		return;
+    	}
         try {
         	$cb = $request->get('_callback', 'callback');
 
