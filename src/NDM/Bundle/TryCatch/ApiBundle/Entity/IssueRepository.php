@@ -46,8 +46,8 @@ class IssueRepository extends EntityRepository
 	}
 
 	protected function calculateGraphSummary($open) {
-		$today = new \DateTime('+2 weeks');
-		$date = new \DateTime('1 month ago');
+		$today = new \DateTime('2012-05-10');
+		$date = new \DateTime('2012-04-10');
 		$curOpen = 0;
 
 		while($date < $today) {
@@ -94,4 +94,62 @@ class IssueRepository extends EntityRepository
 
 		return $data;
 	}
+
+    public function getAverageOpenTime() {
+        $issues = $this->findAll();
+        $curDate = new \DateTime();
+        $date = new \DateTime('-1 month');
+        $data = array();
+        while($date < $curDate) {
+            $key = $date->format('Y-m-d');
+            $data[$key] = array();
+
+            foreach($issues as $issue) {
+                $closed = $issue->getClosedAt();
+                $created = $issue->getCreatedAt();
+                if($issue->wasOpenOn($date)) {
+                    $data[$key][] = $issue;
+                }
+            }
+
+            $date->modify('+1 day');
+        }
+
+        foreach($data as $date => $issues) {
+            $averageOpenTime = 0;
+            if(count($issues) > 0) {
+                $data[$date] = array('time' => 0, 'count' => 0);
+                foreach($issues as $issue) {
+                    $closed = $issue->getClosedAt();
+                    $created = $issue->getCreatedAt();
+
+                    if(!$issue->getClosedAt()) {
+                        $closed = new DateTime();
+                    }
+                    $averageOpenTime += $closed->getTimestamp() - $created->getTimestamp();
+                }
+                $averageOpenTime = ($averageOpenTime / count($issues));
+            }
+
+            $data[$date] = array('time' => $averageOpenTime, 'count' => count($issues));
+        }
+
+        return $data;
+    }
+
+    public function getGroupedIssues() {
+        $issues = array();
+        $qb = $this->createQueryBuilder('i');
+        $results = $qb->getQuery()->execute();
+        $open = array();
+
+        foreach($results as $issue) {
+            if(!isset($issues[$issue->getCreatedAt()->format('Y-m-d')])) {
+                $issues[$issue->getCreatedAt()->format('Y-m-d')] = array();
+            }
+            $issues[$issue->getCreatedAt()->format('Y-m-d')][] = $issue;
+        }
+
+        return $issues;
+    }
 }

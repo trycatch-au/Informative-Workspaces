@@ -1,14 +1,17 @@
-define(['app', 'collections/issues', 'text!components/issuelist/templates/issueList.tpl'], function(app, IssueCollection, tpl) {
+define(['app', 'collections/issues', 'components/issuelist/views/list'], function(app, IssueCollection, listView) {
 	var render = function() {
-			return _.template(tpl, {
-				issues: issues.models
-			})
+			view.render();
+			return this;
 		},
 		issues = new IssueCollection(),
 		target,
+		view = new listView({
+			collection: issues
+		}),
 		me = {
 			setTarget: function(targ) {
 				target = targ;
+				me.getTarget().append(view.el);
 
 				return this;
 			},
@@ -18,7 +21,7 @@ define(['app', 'collections/issues', 'text!components/issuelist/templates/issueL
 			},
 
 			refresh: function() {
-				target.html(render());
+				render();
 
 				return this;
 			},

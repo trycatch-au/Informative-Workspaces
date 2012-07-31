@@ -14,6 +14,7 @@ use NDM\Bundle\TryCatch\ApiBundle\Ingester\Reader\CSVReader;
 use NDM\Bundle\TryCatch\ApiBundle\Ingester\Resource\FileResource;
 
 use NDM\Bundle\TryCatch\ApiBundle\Entity\PlannedReleaseDate;
+use NDM\Bundle\TryCatch\ApiBundle\Entity\Issue;
 
 use Symfony\Component\HttpFoundation\Response;
 
@@ -68,7 +69,28 @@ class LoadDataController extends Controller {
 			$entity->setDate(new \DateTime(date('Y-m-d H:i:s', strtotime('tommorow at 12pm'))));
 			$entity->setComponent($this->getDoctrine()->getRepository('TryCatchApiBundle:Component')->findOneById(2));
 			$entity->setChannel($this->getDoctrine()->getRepository('TryCatchApiBundle:Channel')->findOneById(1));
-		}
+		}elseif($type === 'issues') {
+            $em = $this->getDoctrine()->getEntityManager();
+            for($i = 0; $i < 10; $i++) {
+                $openFor = rand(0, 10);
+                $date = '2012-06-' . rand(0, 31);
+                $endsAt = new \DateTime($date);
+                $date = new \DateTime($date);
+                $issue = new Issue();
+                $issue->setCreatedAt($date);
+                if(rand(0,1) === 1) {
+                    $endsAt->modify(sprintf('+%d days', rand(0, 10)));
+                    $issue->setClosedAt($endsAt);
+                }
+                $issue->setName('issue ' . $i);
+                $issue->setPriority(rand(1, 4));
+                $issue->setUid(spl_object_hash($issue));
+                $em->persist($issue);
+                $em->flush();
+            }
+
+            die;
+        }
 
 		$em = $this->getDoctrine()->getEntityManager();
 		$em->persist($entity);

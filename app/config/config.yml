@@ -66,9 +66,9 @@ fos_rest:
         formats:
           xml: true
           json: true
-          js: true
-        mime_types: {'js': ['application/javascript', 'application/javascript+jsonp']}
+          json: true
+        mime_types: {'jsonp': ['application/javascript', 'application/javascript+jsonp']}
     routing_loader:
-        default_format: js
+        default_format: json
 
 #nelmio_api_doc: ~

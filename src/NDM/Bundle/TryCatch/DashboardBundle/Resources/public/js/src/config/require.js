@@ -5,8 +5,14 @@ requirejs.config({
         text: ['../vendor/plugins/text'],
         Backbone:  ['../vendor/backbone'],
         dom:  ['../vendor/zepto'],
-        lawnchair:  ['../vendor/lawnchair']
+        lawnchair:  ['../vendor/lawnchair'],
+        highcharts:  ['../vendor/highcharts-zepto/highcharts.src'],
+        countdown:  ['../vendor/countdown']
     },
     shim: {
+        highcharts: {
+            deps: ['dom', '../vendor/highcharts-zepto/highcharts-zepto.src'],
+            exports: 'Highcharts'
+        }
     }
 });

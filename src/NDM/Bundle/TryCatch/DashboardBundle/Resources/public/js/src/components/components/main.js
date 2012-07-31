@@ -1,15 +1,21 @@
-define(['app', 'collections/components', 'text!components/components/templates/componentsList.tpl'], function(app, ComponentsCollection, tpl) {
+define(['app', 'collections/components', 'components/components/views/list'], function(app, ComponentCollection, listView) {
 	var render = function() {
-			return _.template(tpl, {
-				components: components.models,
-				environments: app.getEnvironments()
-			})
+			view.render();
+			return this;
 		},
-		components = new ComponentsCollection(),
+
+		components = new ComponentCollection(),
+		
 		target,
+		
+		view = new listView({
+			collection: components
+		}),
+
 		me = {
 			setTarget: function(targ) {
 				target = targ;
+				me.getTarget().append(view.el);
 
 				return this;
 			},
@@ -19,8 +25,7 @@ define(['app', 'collections/components', 'text!components/components/templates/c
 			},
 
 			refresh: function() {
-				console.log('asdasd');
-				target.html(render());
+				render();
 
 				return this;
 			},

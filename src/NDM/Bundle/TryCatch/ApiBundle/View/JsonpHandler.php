@@ -27,13 +27,13 @@ class JsonpHandler {
      */
     public function createResponse(ViewHandlerInterface $handler, View $view, Request $request)
     {
-    	if($request->get('_format') !== 'jsonp') {
-    		return;
-    	}
+    	$content = null;
+    	$code = Codes::HTTP_INTERNAL_SERVER_ERROR;
+
         try {
         	$cb = $request->get('_callback', 'callback');
 
-            $content = sprintf('%s(%s);', $cb, json_encode($view->getData()));
+            $content = sprintf('%s(%s);', $cb, @json_encode($view->getData()));
             $code = Codes::HTTP_OK;
         } catch (\Exception $e) {
             if ($this->logger) {
