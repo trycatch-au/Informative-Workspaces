@@ -96,9 +96,12 @@ class IssueRepository extends EntityRepository
 	}
 
     public function getAverageOpenTime() {
+        // Learn to code Dave...
+        // Move this to a command and cache the result.
+
         $issues = $this->findAll();
-        $curDate = new \DateTime();
-        $date = new \DateTime('-1 month');
+        $curDate = new \DateTime('+1 day');
+        $date = new \DateTime('-2 weeks');
         $data = array();
         while($date < $curDate) {
             $key = $date->format('Y-m-d');
@@ -107,6 +110,7 @@ class IssueRepository extends EntityRepository
             foreach($issues as $issue) {
                 $closed = $issue->getClosedAt();
                 $created = $issue->getCreatedAt();
+
                 if($issue->wasOpenOn($date)) {
                     $data[$key][] = $issue;
                 }
@@ -122,10 +126,14 @@ class IssueRepository extends EntityRepository
                 foreach($issues as $issue) {
                     $closed = $issue->getClosedAt();
                     $created = $issue->getCreatedAt();
-
-                    if(!$issue->getClosedAt()) {
-                        $closed = new DateTime();
+                    if(!$created) {
+                        continue;
                     }
+
+                    if(!($closed instanceof \DateTime)) {
+                        $closed = new \DateTime();
+                    }
+
                     $averageOpenTime += $closed->getTimestamp() - $created->getTimestamp();
                 }
                 $averageOpenTime = ($averageOpenTime / count($issues));

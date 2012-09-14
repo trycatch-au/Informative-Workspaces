@@ -7,7 +7,9 @@ requirejs.config({
         dom:  ['../vendor/zepto'],
         lawnchair:  ['../vendor/lawnchair'],
         highcharts:  ['../vendor/highcharts-zepto/highcharts.src'],
-        countdown:  ['../vendor/countdown']
+        countdown:  ['../vendor/countdown'],
+        bootstrap:  ['../vendor/bootstrap'],
+        d8:  ['../vendor/D8']
     },
     shim: {
         highcharts: {

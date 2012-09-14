@@ -42,6 +42,11 @@ class Channel {
 	 */
 	private $releases;
 
+    public function __construct() {
+        $this->components = new ArrayCollection();
+        $this->releases = new ArrayCollection();
+    }
+
 	/**
 	 * Get id
 	 *

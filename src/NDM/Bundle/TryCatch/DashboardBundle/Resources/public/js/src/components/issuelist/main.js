@@ -1,24 +1,19 @@
-define(['app', 'collections/issues', 'components/issuelist/views/list'], function(app, IssueCollection, listView) {
+define(['app', 'collections/issues', 'components/issuelist/views/list', 'components/base'], function(app, IssueCollection, listView, BaseComponent) {
 	var render = function() {
 			view.render();
 			return this;
 		},
-		issues = new IssueCollection(),
-		target,
+
+        issues = new IssueCollection(),
+
+        target,
+
 		view = new listView({
 			collection: issues
 		}),
-		me = {
-			setTarget: function(targ) {
-				target = targ;
-				me.getTarget().append(view.el);
 
-				return this;
-			},
-			
-			getTarget: function() {
-				return target;
-			},
+		comp = BaseComponent.extend({
+            name: 'issues',
 
 			refresh: function() {
 				render();
@@ -26,16 +21,24 @@ define(['app', 'collections/issues', 'components/issuelist/views/list'], functio
 				return this;
 			},
 
+            onTargetSet: function() {
+                this.getTarget().append(view.el);
+            },
+
 			render: function() {
+                var me = this;
 				issues.fetch({
 					success: function() {
-						me.refresh();
+						render();
 					}
 				});
+                setInterval(function() {
+                    issues.fetch({add: true});
+                }, refreshCounter);
 
 				return this;
 			}
-		};
+		});
 
-	return me;
+	return new comp();
 });

@@ -1,13 +1,20 @@
-define(['Backbone', 'models/release'], function(Backbone, ReleaseDate) {
+define(['Backbone', 'models/release', 'date'], function(Backbone, ReleaseDate, date) {
 	return Backbone.Collection.extend({
 		model: ReleaseDate,
-		getUpcoming: function(cb) {
-			$.get('/api/components/fatwire/releasedates.json', function(data) {
-				data = data.pop();
+		getUpcoming: function(cb, component, channel) {
+            var that = this;
+			$.get('/api/components/' + component + '/releasedates.json', function(data) {
+                if(data.length === 0) {
+                    return;
+                }
+
+                data = data.pop();
+
+
 				var obj = {
 					dates: {
-						codeFreeze: new Date(data.date),
-						release: new Date(data.date),
+						codeFreeze: new date(data.freezeDate),
+						release: new date(data.date)
 					},
 
 					name: '12R5',

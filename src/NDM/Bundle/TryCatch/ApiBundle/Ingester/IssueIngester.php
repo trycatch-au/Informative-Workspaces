@@ -18,6 +18,7 @@ class IssueIngester extends Ingester {
 
 		if(!$entity) {
 			$entity = new Issue();
+            $entity->setUid($record['id']);
 		}
 
 		$this->om->persist($entity);

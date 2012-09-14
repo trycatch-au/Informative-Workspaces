@@ -16,7 +16,20 @@ use Doctrine\ORM\Query\Expr;
 class ComponentRepository extends EntityRepository
 {
 
-	public function findAllAsArray() {
-		return $this->createQueryBuilder('c')->select('c', 'ch', 'chan', 'rel')->innerJoin('c.channels', 'ch')->innerJoin('ch.channel', 'chan')->innerJoin('c.releases', 'rel')->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
+	public function findAsArray($types = array()) {
+		$qb = $this->createQueryBuilder('c');
+        $qb
+            ->select('c', 'ch', 'chan', 'rel')
+            ->leftJoin('c.channels', 'ch')
+            ->leftJoin('ch.channel', 'chan')
+            ->leftJoin('c.releases', 'rel')
+        ;
+
+        if(is_array($types) && count($types) > 0) {
+            $qb->andWhere($qb->expr()->in('c.name', ':types'))
+                ->setParameter('types', $types);
+        }
+
+        return $qb->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
 	}
 }

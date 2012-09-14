@@ -19,6 +19,7 @@ td, th {
 
 body {
 	font-size: 30pt;
+    line-height: 30pt;
 }
 .table tbody tr:hover td,
 .table tbody tr:hover th {
@@ -45,4 +46,20 @@ body {
 }
 .counter h2 {
     margin-bottom: 10px;
+}
+
+.issueGraph {
+    padding-top: 13px;
+}
+
+#saveComponent {
+    display: none;
+}
+
+.module.chooser {
+    display: none;
+}
+
+.priority-important {
+    color: #B94A48;
 }

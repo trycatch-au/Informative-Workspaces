@@ -65,17 +65,4 @@ class IssueController extends Controller {
     public function getAverageOpenTimeAction() {
         return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->getAverageOpenTime();
     }
-
-	/**
-     * @param string $_format The format to return the data in
-     *
-     * @ApiDoc(
-	 *  resource=true,
-	 *  description="Get the highest open issue"
-	 * )
-	 * @FOS\View(templateVar="highest")
-	 */
-	public function getIssuesHighestAction() {
-		return $this->render('TryCatchApiBundle:Issue:highest.js.twig', array('highest' => rand(0, 4)));
-	}
 }

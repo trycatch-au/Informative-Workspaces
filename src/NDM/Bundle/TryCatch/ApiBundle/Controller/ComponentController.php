@@ -23,14 +23,22 @@ class ComponentController extends Controller
      *
      * @ApiDoc(
 	 *  resource=true,
-	 *  description="List all of the available component channels"
+	 *  description="List all of the available component channels",
+     *  filters = {
+     *      { "name" = "types","dataType" = "string", "description" = "The items to return seperated by comma, urlencoded", "required" = "false" }
+     *  }
 	 * )
      *
      * @FOS\View(templateVar="components")
      */
     public function getComponentsAction()
     {
-        return $this->get('ndm_try_catch.model.component_finder')->findAllAsArray();
+        $types = $this->getRequest()->query->get('types');
+        if(strlen($types) > 0) {
+            $types = explode(',', $types);
+        }
+
+        return $this->get('ndm_try_catch.model.component_finder')->findAsArray($types);
     }
 
     /**

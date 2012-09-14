@@ -2,6 +2,12 @@ define(['Backbone', 'models/issue'], function(Backbone, Issue) {
 	return Backbone.Collection.extend({
 		url: '/api/issues.json',
 		model: Issue,
+        initialize: function() {
+            setInterval(function() {
+                this.fetch
+            }, refreshCounter);
+        },
+
 		getGraphData: function(cb) {
 			$.get('/api/issues/graph.json', function(data) {
 				cb(data);
@@ -9,7 +15,7 @@ define(['Backbone', 'models/issue'], function(Backbone, Issue) {
 		},
 		getAdvancedGraphData: function() {
 			var me = this, grouped = {}, data = {
-				
+
 			};
 
 			for(i in this.models) {
@@ -34,8 +40,6 @@ define(['Backbone', 'models/issue'], function(Backbone, Issue) {
 				}
 			}
 
-			console.log(data);
-
 			return data;
 		},
 		getOpen: function() {
@@ -47,7 +51,7 @@ define(['Backbone', 'models/issue'], function(Backbone, Issue) {
 				}
 			}
 
-			return open;
+			return new Backbone.Collection(open);
 		},
 
 		extractGraphData: function(model, data) {

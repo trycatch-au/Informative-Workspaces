@@ -1,0 +1,115 @@
+/*--------- defaults ----------------*/
+
+body {background: #3e9d5f; padding: 20px 0 0 0; font-family: 'MelbourneRegular', serif; }
+
+.table td, .table th {  border: 0; }
+
+.table tbody + tbody { border: 0; }
+
+thead th { font-family: 'MelbourneBold', serif; line-height: 30px; }
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {	background-color: transparent; }
+
+/*--------- section dashboard ----------------*/
+
+.dashboard {}
+
+.dashboard .module {
+	padding: 0px 10px 10px 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: url('../img/table_bg.gif');
+	background-repeat: repeat-x;
+	margin-bottom: 20px;
+	margin: 0px 10px 10px 10px;
+	color: white;
+}
+
+/*--------- p1 issue styles ----------------*/
+
+body.inp1 { background: url('../img/gradient.gif') repeat-x  #FF4F00; }
+body.inp1 .module.upcoming { background: url('../img/bg_diag_red.gif') #FF4F00; }
+body.inp1 .module.upcoming .nextReleaseDate h1 { color: #501900;  }
+
+/*--------- section news-update ----------------
+.news-update {  }
+.news-update .module.intro { color: #fff; margin: 30px 0 100px 0;}
+.news-update .module.intro h2 { font-size: 70px; line-height: 70px; text-transform: uppercase; }
+.news-update .module.intro h3 { font-size: 30px; line-height: 30px; text-transform: uppercase; }
+.news-update .module.intro .details { padding: 45px 0 0 100px; }
+.news-update .module.intro .details p { font-size: 45px; line-height: 35px; text-transform: uppercase; }
+
+.news-update .module.program {}
+.news-update .module.program .program-item	{ margin: 0 0 20px 0; }
+.news-update .module.program .program-item h2 { color: #501900; font-size: 50px; line-height: 50px; text-transform: uppercase; }
+.news-update .module.program .program-item p { color: #a03200; font-size: 20px; line-height: 20px; }
+.news-update .module.program .program-item.highlight { border-top: 1px solid #ff9566; border-bottom: 1px solid #fff; padding: 20px 0 40px 0; }
+.news-update .module.program .program-item.highlight h2 { font-size: 70px; line-height: 70px; }
+
+.news-update .module.supported-by {  padding: 20px 0 0 0; overflow: hidden; width: 70%; float: right; }
+.news-update .module.supported-by h2 {color: #fff; font-size: 15px; line-height: 15px; text-transform: uppercase; float: left; }
+.news-update .module.supported-by ul 	{ float: right; }
+.news-update .module.supported-by ul li { list-style-type: none; float: left; }
+
+*/
+
+/*--------- module upcoming ----------------*/
+
+.module.upcoming { background: #156b33; font-family: 'MelbourneBold', serif; padding: 0 10px 0 10px; }
+.module.upcoming .nextReleaseDate h1 {color: #01280f; padding: 0px; font-weight: bold; letter-spacing: 0px; }
+.module.upcoming .nextReleaseDate small { font-family: 'MelbourneLight', serif; font-weight: bold; margin: 10px 0 0 0;}
+.module.upcoming .counter { background: url('../img/table_bg.gif'); padding: 10px; margin: 10px 0 10px 0; height: 90px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;}
+.module.upcoming .counter h2 { font-family: 'MelbourneBold', serif; font-size: 30px; margin-bottom: 25px; }
+
+/*--------- module components ----------------*/
+
+.module.components {  }
+
+/*--------- module issues ----------------*/
+
+.module.issues {  }
+
+/*--------- module issuegraph ----------------*/
+.module.issuegraph { padding-top: 10px; }
+
+/*--------- build status styles ----------------*/
+
+@-webkit-keyframes buildsuccessflash {
+  from { background-color: rgba(70,136,71, .4); }
+  to { background-color: rgba(70,136,71, 1); }
+}
+
+@-webkit-keyframes buildfailflash {
+  from { background-color: transparent; }
+  to { background-color: rgba(185,74,72, 1); }
+}
+@-webkit-keyframes buildflash {
+  from { background-color: transparent; }
+  to { background-color: rgba(58,135,173, 1); }
+}
+
+
+.success {
+  -webkit-animation-iteration-count: 5;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: .5s;
+  -webkit-animation-name: buildsuccessflash;
+}
+
+.building {
+    background: transparent;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 10s;
+  -webkit-animation-name: buildflash;
+}
+
+.fail {
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: .5s;
+  -webkit-animation-name: buildfailflash;
+}

@@ -2,7 +2,6 @@
 namespace NDM\Bundle\TryCatch\ApiBundle\Ingester;
 
 use NDM\Bundle\TryCatch\ApiBundle\Entity\Issue;
-
 use NDM\Bundle\TryCatch\ApiBundle\Entity\Component;
 use NDM\Bundle\TryCatch\ApiBundle\Ingester;
 

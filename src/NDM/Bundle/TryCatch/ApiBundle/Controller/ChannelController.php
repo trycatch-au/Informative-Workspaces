@@ -23,14 +23,22 @@ class ChannelController extends Controller {
      * @param string $_format The format to return the data in
 	 * @ApiDoc(
 	 *  resource=true,
-	 *  description="List all available release channels"
+	 *  description="List all available release channels",
+     *  filters = {
+     *      { "name" = "channels","dataType" = "string", "description" = "The channels to return seperated by comma, urlencoded", "required" = "false" }
+     *  }
 	 * )
 	 *
 	 * @FOS\View(templateVar="channels")
 	 */
 	public function getChannelsAction() {
+        $types = $this->getRequest()->query->get('channels');
+        if($types) {
+            $types = explode(',', $types);
+        }
+
 		return $this->get('ndm_try_catch.model.channel_finder')
-				->findAllAsArray();
+				->findAsArray($types);
 	}
 
 	/**

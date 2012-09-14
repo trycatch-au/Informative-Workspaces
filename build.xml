@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<project name="TryCatchAPI" default="build" basedir="./">
+
+	<tstamp>
+		  <format property="builddate" pattern="%Y/%m/%d %T" locale="en_AU"/>
+	</tstamp>
+
+	<property name="version" value="${env.BUILD_NUMBER}" override="true" />
+	<property name="release" value="${env.RELEASE_NUMBER}" override="true" />
+    <property name="resource.dir" value="app/Resources" />
+    <property name="build.dir" value="${resource.dir}/build" />
+	<property name="build.tmp" value="${build.dir}/tmp" />
+	<property name="build.artifacts" value="${build.dir}/artifacts" />
+	<property name="build.sources" value="${build.dir}/SOURCES" />
+	<resolvepath propertyName="absolute.build.artifacts" file="${build.artifacts}"/>
+	<property name="buildlogsdir" value="${build.dir}/logs" />
+	<property name="buildpackage" value="TryCatchAPI-${version}-${release}"/>
+
+	<property name="appdir" value="./application" />
+
+	<!-- Filesets -->
+	<fileset dir="./" id="app" defaultexcludes="true" expandsymboliclinks="true">
+		<include name="app/**" />
+		<include name="web/**" />
+		<include name="vendor/**" />
+		<include name="src/**" />
+		<exclude name="app/config/parameters.yml"/>
+		<exclude name="app/logs/**"/>
+		<exclude name="app/cache/**"/>
+		<exclude name="web/css"/>
+		<exclude name="web/js"/>
+        <exclude name="web/bundles"/>
+        <exclude name="composer.json"/>
+        <exclude name="composer.lock"/>
+        <exclude name="composer.phar"/>
+        <exclude name=".git"/>
+        <exclude name="${build.dir}"/>
+	</fileset>
+
+	<!-- Clean -->
+	<target name="clean">
+		<echo msg="Cleaning..." />
+		<delete dir="${build.dir}" includeemptydirs="true" verbose="false" failonerror="true" />
+	</target>
+
+	<!-- Preparation -->
+	<target name="prepare">
+		<echo msg="Preparing..." />
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.tmp}"/>
+		<mkdir dir="${build.artifacts}"/>
+		<mkdir dir="${buildlogsdir}"/>
+	</target>
+    <!-- Testing  coverage-clover ./build/logs/clover.xml coverage-html   ./build/coverage -->
+    <target name="phpunit" depends="prepare">
+        <echo msg="Running unit tests..." />
+        <exec checkreturn="true" command="phpunit -c app src --log-junit ${resource.dir}/logs/phpunit.xml" />
+    </target>
+
+    <!-- PhpDocumentor -->
+    <target name="phpdocs">
+        <echo msg="Creating Docs" />
+        <exec checkreturn="true" command="
+        phpdoc
+        -d src
+        -t ${resource.dir}/docs
+        -o HTML:frames:earthli
+        -q
+        -i *.twig" />
+        <exec command="find ${resource.dir}/docs/ -name '*.html' | xargs sed -i 's/&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?>//g'" />
+
+    </target>
+
+	<!-- Code Sniff -->
+	<target name="sniff" depends="prepare">
+		<echo msg="Running code sniffer..." />
+		<!--phpcodesniffer
+			standard="Zend"
+			tabWidth="4"
+			format="summary"
+			file="app"
+			allowedFileExtensions="php php5 inc">
+		</phpcodesniffer-->
+		<exec command="phpcs
+		--standard=Zend
+		--tab-width=4
+		--extensions=php,php5,inc
+		--report=checkstyle application > ${buildlogsdir}/checkstyle.xml" />
+	</target>
+
+	<!-- Build app -->
+	<target name="buildapp" depends="clean,prepare">
+		<echo msg="Copying app source to build dir..." />
+		<copy todir="${build.tmp}">
+			<fileset refid="app" />
+		</copy>
+		<echo msg="Creating tar artifact..." />
+		<tar destfile="${absolute.build.artifacts}/${buildpackage}.tar.gz" compression="gzip">
+			<fileset dir="${build.tmp}">
+				<include name="*" />
+			</fileset>
+		</tar>
+		<!-- Delete application build directory -->
+		<delete dir="${build.tmp}" includeemptydirs="true" verbose="false" failonerror="true" />
+	</target>
+
+	<!-- RPM Generation   depends="buildapp" -->
+	<target name="buildrpm" depends="buildapp">
+		<echo msg="Copying tar.gz to rpm SOURCES directory..." />
+		<exec command="rpm --eval '%{_topdir}'" outputProperty="rpm.topdir" />
+		<copy file="${absolute.build.artifacts}/${buildpackage}.tar.gz"
+			todir="${rpm.topdir}/SOURCES" overwrite="true"/>
+		<echo msg="Running rpmbuild -bb" />
+		<exec checkreturn="true" command='rpmbuild -bb ./TryCatchApi.spec --define "BUILD_NUMBER ${env.BUILD_NUMBER}" --define "RELEASE_NUMBER ${env.RELEASE_NUMBER}"' />
+		<echo msg="Copying rpm into artifacts directory" />
+		<copy file="${rpm.topdir}/RPMS/noarch/${buildpackage}.noarch.rpm"
+				todir="${absolute.build.artifacts}" overwrite="true"/>
+	</target>
+
+	<target name="build" depends="clean,prepare,phpunit,buildrpm"/>
+	<target name="build-prod" depends="buildrpm"/>
+	<target name="build-dev" depends="clean,prepare,phpunit,sniff"/>
+</project>

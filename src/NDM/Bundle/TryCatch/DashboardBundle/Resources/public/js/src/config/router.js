@@ -1,25 +1,34 @@
-define(['Backbone', 'config/dashboard'], function(Backbone, dashboard) {
-	var $el = $('<section />'), component;
-	function render(components) {
-		$el.empty();
-	  	for(i in components) {
-	  		component = components[i];
-	  		if(!component.getTarget()) {
-	  			component.setTarget($('<section class="module" />'));
-	  		}
-	  		$el.append(component.getTarget());
-	  		component.render();
-	  	}
-	}
-	$el.appendTo($('#content'));
+define(['Backbone', 'config/dashboard', 'dom'], function(Backbone, dashboard, $) {
+    var $el = $('<section class="dashboard"/>'),
+        component;
 
-	return Backbone.Router.extend({
-	  routes: {
-	    "": "dash"
-	  },
+    function render(components) {
+        var i;
+        $el.empty();
+        for (i in components) {
+            if (components.hasOwnProperty(i)) {
+                component = components[i];
 
-	  dash: function() {
-	  	dashboard.getComponents(render);
-	  }
-	});
+                if (!component.getTarget()) {
+                    component.setTarget($('<section class="module ' + component.name + '" />'));
+                }
+
+                $el.append(component.getTarget());
+                component.render();
+                component.flipped = false;
+            }
+        }
+    }
+
+    $el.appendTo($('#content'));
+
+    return Backbone.Router.extend({
+        routes: {
+            '': 'dash'
+        },
+
+        dash: function() {
+            dashboard.getComponents(render);
+        }
+    });
 });

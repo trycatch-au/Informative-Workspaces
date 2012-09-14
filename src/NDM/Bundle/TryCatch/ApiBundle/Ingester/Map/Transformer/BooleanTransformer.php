@@ -22,10 +22,10 @@ class BooleanTransformer {
 	 */
 	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		if(!is_string($value)) {
-			$value = strtolower($value);
-			if(($value === 'yes') || ($value === 'y') || ($value === 't')) {
+			$value = trim(strtolower($value));
+			if(($value === 'yes') || ($value === 'true') || ($value === 'y') || ($value === 't')) {
 				$value = true;
-			}else if(($value === 'no') || ($value === 'n') || ($value === 'f')) {
+			}else if(($value === 'no') || ($value === 'false') || ($value === 'n') || ($value === 'f')) {
 				$value = false;
 			}
 		}else{

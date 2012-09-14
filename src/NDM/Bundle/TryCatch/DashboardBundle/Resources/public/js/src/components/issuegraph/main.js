@@ -1,45 +1,32 @@
-define(['app', 'collections/issues', 'components/issuegraph/views/graph'], function(app, IssueCollection, graphView) {
+define(['app', 'collections/issues', 'components/issuegraph/views/graph', 'components/base'], function(app, IssueCollection, graphView, BaseComponent) {
 	var render = function() {
+
 			view.render();
 			return this;
 		},
-
 		issues = new IssueCollection(),
-		
-		target,
-		
 		view = new graphView({
 			collection: issues
 		}),
+		component = BaseComponent.extend({
+            name: 'issuegraph',
+            onTargetSet: function() {
 
-		me = {
-			setTarget: function(targ) {
-				target = targ;
-				me.getTarget().append(view.el);
-
-				return this;
-			},
-			
-			getTarget: function() {
-				return target;
-			},
+                this.getTarget().append(view.el);
+            },
 
 			refresh: function() {
-				render();
+                render();
+                issues.fetch({
+                    success: function() {
+                        render();
+                    }
+                });
 
-				return this;
-			},
-
-			render: function() {
-				issues.fetch({
-					success: function() {
-						me.refresh();
-					}
-				});
-
-				return this;
+                return this;
 			}
-		};
+		}),
+        target;
 
-	return me;
+	return new component();
 });

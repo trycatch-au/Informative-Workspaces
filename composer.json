@@ -22,7 +22,8 @@
         "raulfraile/ladybug-bundle": "dev-master",
         "nelmio/api-doc-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
-        "knplabs/knp-markdown-bundle": "dev-master"
+        "knplabs/knp-markdown-bundle": "dev-master",
+        "phpoffice/excel": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -35,7 +36,27 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ]
-    },    
+
+    },
+    "repositories": [{
+            "type": "package",
+
+            "package": {
+                "name": "phpoffice/excel",
+                "version": "master",
+                "target-dir": "phpoffice/phpexcel",
+                "dist": {
+                    "url": "https://github.com/PHPOffice/PHPExcel/zipball/develop",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/PHPOffice/PHPExcel.git",
+                    "type": "git",
+                    "reference": "develop"
+                }
+            }
+        }
+    ],
     "config": {
         "bin-dir": "bin"
     },

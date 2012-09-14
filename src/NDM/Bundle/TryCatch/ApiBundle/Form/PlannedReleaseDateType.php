@@ -13,6 +13,7 @@ class PlannedReleaseDateType extends AbstractType
     {
         $builder
             ->add('date')
+            ->add('freezeDate')
             ->add('channel')
             ->add('component')
         ;

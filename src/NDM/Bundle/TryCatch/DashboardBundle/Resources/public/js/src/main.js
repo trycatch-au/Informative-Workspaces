@@ -1,3 +1,3 @@
-define(['config/require', 'app'], function(requireConfig, app) {
+define(['dom', 'bootstrap', 'app'], function($, bootstrap, app) {
 	app.initialize();
 });
