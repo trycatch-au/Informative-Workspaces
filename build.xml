@@ -27,9 +27,6 @@
 		<exclude name="app/config/parameters.yml"/>
 		<exclude name="app/logs/**"/>
 		<exclude name="app/cache/**"/>
-		<exclude name="web/css"/>
-		<exclude name="web/js"/>
-        <exclude name="web/bundles"/>
         <exclude name="composer.json"/>
         <exclude name="composer.lock"/>
         <exclude name="composer.phar"/>

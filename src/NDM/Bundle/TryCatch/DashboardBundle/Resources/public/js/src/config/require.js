@@ -9,7 +9,7 @@ requirejs.config({
         highcharts:  ['../vendor/highcharts-zepto/highcharts.src'],
         countdown:  ['../vendor/countdown'],
         bootstrap:  ['../vendor/bootstrap'],
-        d8:  ['../vendor/D8']
+        d8:  ['../vendor/d8']
     },
     shim: {
         highcharts: {

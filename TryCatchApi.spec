@@ -40,22 +40,22 @@ The TryCatchAPI allows a user to ingest environments information and then have t
 #%build
 
 %install
-mkdir -p $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}
-cp -R src $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/.
-cp -R vendor $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/.
-cp -R web $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/.
-cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/.
-rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/app/cache/*
-rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/app/logs/*
-cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}/.
+mkdir -p $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}
+cp -R src $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
+cp -R vendor $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
+cp -R web $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
+cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
+rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/app/cache/*
+rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/app/logs/*
+cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
 
 %files
 %defattr (755,java,java)
 #in UAT and PROD we only need the following and hence the _unpackaged_files_terminate_build and _missing_doc_files_terminate_build declaration
- /projects/informative-dashboard/releases/%{version}/web
- /projects/informative-dashboard/releases/%{version}/app
- /projects/informative-dashboard/releases/%{version}/vendor
- /projects/informative-dashboard/releases/%{version}/src
+ /projects/informative-dashboard/releases/%{version}-%{release}/web
+ /projects/informative-dashboard/releases/%{version}-%{release}/app
+ /projects/informative-dashboard/releases/%{version}-%{release}/vendor
+ /projects/informative-dashboard/releases/%{version}-%{release}/src
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 # php /projects/informative-dashboard/releases/scripts/init-config.php -v%{version}-%{release}
 rm -f /projects/informative-dashboard/current; true;
-ln -s /projects/informative-dashboard/releases/%{version} /projects/informative-dashboard/current;
+ln -s /projects/informative-dashboard/releases/%{version}-%{release} /projects/informative-dashboard/current;
 cp -Rf /projects/informative-dashboard/shared /projects/informative-dashboard/current/; true;
 /projects/informative-dashboard/current/app/console doctrine:schema:update
 service httpd graceful
