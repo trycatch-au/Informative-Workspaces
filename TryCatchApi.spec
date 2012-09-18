@@ -47,7 +47,6 @@ cp -R web $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{r
 cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
 rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/app/cache/*
 rm -rf $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/app/logs/*
-cp -R app $RPM_BUILD_ROOT/projects/informative-dashboard/releases/%{version}-%{release}/.
 
 %files
 %defattr (755,java,java)
