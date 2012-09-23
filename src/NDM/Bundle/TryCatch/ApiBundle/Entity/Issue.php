@@ -158,6 +158,6 @@ class Issue {
 	}
 
 	public function wasOpenOn(\DateTime $date) {
-		return $date >= $this->getCreatedAt() && $date <= $this->getClosedAt();
+		return $date >= $this->getCreatedAt() && (!$this->getClosedAt() || $date <= $this->getClosedAt());
 	}
 }

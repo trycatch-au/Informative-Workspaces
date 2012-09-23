@@ -31,6 +31,9 @@ class CSVReader implements Reader {
 		$headers = false;
 		$data = array();
 		foreach($file as $rowNum => $row) {
+			if(!$row) {
+				continue;
+			}
 
 			$row = array_values($row);
 			if($headers === false) {

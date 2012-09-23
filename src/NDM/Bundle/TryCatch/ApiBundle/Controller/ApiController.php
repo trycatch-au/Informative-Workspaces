@@ -42,6 +42,8 @@ class ApiController extends Controller {
 			throw $this->createNotFoundException('Invalid ingestment data');
 		}
 
+        $this->get('ladybug')->log($data);
+
 		$ingested = $ingester->ingest(new StringResource($data));
 
 		$this->getDoctrine()->getEntityManager()->flush();

@@ -33,14 +33,14 @@
 				</argument> 
 			</argument>
         </service>
-    
-    
+        
         <service id="ndm_try_catch.view.jsonp_handler" class="%ndm_try_catch.view.jsonp_handler.class%">
             <argument type="service" id="logger" on-invalid="continue" />
         </service> 
+        
         <service id="ndm_try_catch.view_handler" parent="fos_rest.view_handler.default">
         	<call method="registerHandler">
-        		<argument>js</argument>
+        		<argument>jsonp</argument>
         		<argument type="collection">
 					<argument type="service" id="ndm_try_catch.view.jsonp_handler" />
 					<argument>createResponse</argument>

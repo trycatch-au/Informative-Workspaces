@@ -1,0 +1,65 @@
+body.worry {
+	background: url('../img/gradient.gif') repeat-x  #FF4F00;
+}
+
+.nextReleaseDate h1 {
+	font-size: 210.054px !important;
+	line-height: 180px;
+}
+
+.nextReleaseDate small {
+	line-height: 30px;
+	font-size:30px;
+	font-weight: bold;;
+}
+
+td, th {
+	line-height: 30px !important;
+}
+
+body {
+	font-size: 30pt;
+    line-height: 30pt;
+}
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+	background-color: transparent;
+}
+.module {
+	padding: 0px 10px 10px 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: url('../img/table_bg.gif');
+	background-repeat: repeat-x;
+	margin-bottom: 20px;
+	margin: 0px 10px 10px 10px;
+	color: white;
+}
+.counter:first-child {
+    margin-top: 44px;
+}
+.counter {
+    height: 90px;
+    width: 100%;
+}
+.counter h2 {
+    margin-bottom: 10px;
+}
+
+.issueGraph {
+    padding-top: 13px;
+}
+
+#saveComponent {
+    display: none;
+}
+
+.module.chooser {
+    display: none;
+}
+
+.priority-important {
+    color: #B94A48;
+}

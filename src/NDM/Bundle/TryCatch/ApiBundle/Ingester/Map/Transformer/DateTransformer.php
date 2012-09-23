@@ -21,6 +21,13 @@ class DateTransformer {
 	 * @return \DateTime|NULL
 	 */
 	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
+        if($value === null || $value === 'null' || $value === '') {
+            return null;
+        }
+        if($value === 'now') {
+            return new \DateTime();
+        }
+
 		try {
 			$date = new \DateTime($value);
 

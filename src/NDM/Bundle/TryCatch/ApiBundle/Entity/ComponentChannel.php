@@ -42,6 +42,13 @@ class ComponentChannel
      */
     private $channel;
 
+    /**
+     * @var array $health
+     *
+     * @ORM\Column(type="array", name="health")
+     */
+    private $health;
+
 
     /**
 	 * @return the $version

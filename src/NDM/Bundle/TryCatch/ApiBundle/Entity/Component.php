@@ -31,6 +31,13 @@ class Component
     private $name;
 
     /**
+     * @var string $displayName
+     *
+     * @ORM\Column(name="display_name", type="string", length=255, nullable=true)
+     */
+    private $displayName;
+
+    /**
      * @var string $version Represents the latest available version for any environment
      *
      * @ORM\Column(name="version", type="string", length=255)
@@ -93,6 +100,28 @@ class Component
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Component
+     */
+    public function setDisplayName($name)
+    {
+        $this->displayName = $name;
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->displayName;
     }
 
     /**

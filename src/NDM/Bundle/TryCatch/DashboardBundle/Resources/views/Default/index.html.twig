@@ -1,51 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>NDM Central Technology Informative Workspaces</title>
+    <head>
+        <title>TryCatch - Dashboards</title>
 
-    <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
-    <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-    <link rel="shortcut icon" href="/bundles/trycatchdashboard/image/apple-touch-icon.png"> <!-- For Nokia -->
-    <link rel="shortcut icon" href="/bundles/trycatchdashboard/favicon.ico"> <!-- For everything else -->
+        <link rel="stylesheet" type="text/css" href="/bundles/trycatchdashboard/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/bundles/trycatchdashboard/css/base.css" />
+        <script type="text/javascript">var refreshCounter = 5000; </script>
+    </head>
+    <body>
+        <section id="wrapper">
+            <div id="content" class="container-fluid">
+                <section id="sidebar"></setion>
 
-    <!-- below script allows CSS3 pseudo selectors in IE -->
-    <!--[if (lt IE 9) & (!IEMobile)]>
-    <script src="/bundles/trycatchdashboard/js/selectivizr-min.js"></script>
-    <![endif]-->
-    {% javascripts 
-        '@TryCatchDashboardBundle/Resources/public/js/jquery-1.7.2.min.js'
-	'@TryCatchDashboardBundle/Resources/public/js/micro-templating.js'
-	'@TryCatchDashboardBundle/Resources/public/js/modernizr.custom.js'
-	'@TryCatchDashboardBundle/Resources/public/js/init.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
-        
-    <link rel="canonical" href="/">
-    {% stylesheets 
-        '@TryCatchDashboardBundle/Resources/public/css/reset.css'
-        '@TryCatchDashboardBundle/Resources/public/css/informative_dash-all.css'
-    %}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
-    {% endstylesheets %}
-</head>
-<body class="noinfo">
-    <header class="inactive"></header>
-    <div id="section_1" class="section section_1 inactive"></div>
-    <div id="section_2" class="section section_2 inactive"></div>
-    <div id="section_3" class="section section_3 inactive"></div>
-    <div id="section_4" class="section section_4 inactive"></div>
-    <div id="section_5" class="section section_5 inactive"></div>
-    <div id="section_6" class="section section_6 inactive"></div>
-    <footer class="inactive"></footer>
-</body>
+            </div>
+        </section>
+        <script src="/bundles/trycatchdashboard/js/vendor/modenizr.js"></script>
+        <script data-main="/bundles/trycatchdashboard/js/src/main" src="/bundles/trycatchdashboard/js/vendor/require.js"></script>
+        <script src="/bundles/trycatchdashboard/js/src/config/require.js"></script>
+    </body>
 </html>
-

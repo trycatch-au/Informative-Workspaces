@@ -2,7 +2,6 @@
 namespace NDM\Bundle\TryCatch\ApiBundle\Ingester;
 
 use NDM\Bundle\TryCatch\ApiBundle\Entity\Issue;
-
 use NDM\Bundle\TryCatch\ApiBundle\Entity\Component;
 use NDM\Bundle\TryCatch\ApiBundle\Ingester;
 
@@ -17,7 +16,9 @@ class BuildIngester extends Ingester {
 
 
 		if(!$entity) {
-			$entity = new Issue();
+			$entity = new Component();
+			$entity->setVersion(1);
+			$entity->setName('Unknown');
 		}
 
 		$this->om->persist($entity);
