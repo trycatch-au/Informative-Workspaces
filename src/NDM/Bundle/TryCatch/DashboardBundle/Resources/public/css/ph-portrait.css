@@ -1,0 +1,55 @@
+.module.upcoming .nextReleaseDate small {line-height: 15px; font-size:15px;}
+.module.upcoming .nextReleaseDate h1 {font-size: 120px; line-height: 80px; margin: 30px 0 0 0; }
+.module.upcoming .counter time { font-size: 34px; }
+
+.module.components .componentList thead th { font-size: 12px; line-height: 30px; font-weight: bold;}
+.module.components .componentList tbody th,
+.module.components .componentList tbody td { font-size: 12px; line-height: 12px; }
+
+.module.issues .issueList thead th { font-size: 12px; line-height: 30px; }
+.module.issues .issueList tbody th,
+.module.issues .issueList tbody td { font-size: 12px; line-height: 12px; }
+.module.upcoming .span6 {
+    width: 210px;
+}
+
+.module.upcoming .span6.nextReleaseDate { float:left; width: 100%; }
+
+.module.upcoming .counter { display: block; width: 100%; float: left; }
+
+
+.module.components table, .module.components thead, .module.components tbody, .module.components tr, .module.components td, .module.components th {
+    display: block;
+    float: left;
+}
+.module.components tr, .module.components td, .module.components th {
+    width: 100%;
+}
+.module.components tbody tr {
+    width: 100%;
+    float: left;
+}
+.module.components tbody tr td {
+    display: none;
+}
+.module.components tbody tr.expanded td {
+    display: block;
+}
+
+.module.components table, .module.components th, .module.components td {
+    display: block;
+}
+
+.module.components tbody {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.module.components thead {
+    display: none;
+}
+
+.channelName {
+    display: inline;
+}

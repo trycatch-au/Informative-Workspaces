@@ -1,0 +1,13 @@
+.module.upcoming .nextReleaseDate small { line-height: 25px; font-size:25px; }
+.module.upcoming .nextReleaseDate h1 { font-size: 230px; line-height: 185px; margin: 30px 0 0 0; }
+.module.upcoming .counter time { font-size: 48px; }
+
+.module.components .componentList th, 
+.module.components .componentList td { font-size: 30px; line-height: 30px; }
+.module.components .componentList thead th { font-size: 30px; line-height: 30px; }
+.module.components .componentList tbody th,
+.module.components .componentList tbody td { font-size: 30px; line-height: 30px; }
+
+.module.issues .issueList thead th { font-size: 30px; line-height: 30px; }
+.module.issues .issueList tbody th,
+.module.issues .issueList tbody td { font-size: 20px; line-height: 25px; }

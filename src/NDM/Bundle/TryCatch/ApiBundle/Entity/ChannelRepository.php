@@ -15,7 +15,21 @@ use Doctrine\ORM\Query\Expr;
 
 class ChannelRepository extends EntityRepository
 {
-	public function findAllAsArray() {
-		return $this->createQueryBuilder('c')->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
+	public function findAsArray($types = array()) {
+        $qb = $this->createQueryBuilder('c');
+
+        if(is_array($types) && count($types) > 0) {
+            $qb->andWhere($qb->expr()->in('c.name', ':types'))
+                ->setParameter('types', $types);
+        }
+
+		return $qb->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
 	}
+
+    public function findForComponent() {
+        $qb = $this->createQueryBuilder('c');
+        $qb->innerJoin('c.component')
+            ->innerJoin('c.channel')
+            ->andWhere($qb->expr()->eq('c.id', ':channelId'));
+    }
 }

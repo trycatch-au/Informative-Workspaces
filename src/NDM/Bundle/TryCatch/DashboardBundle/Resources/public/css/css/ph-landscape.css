@@ -1,0 +1,14 @@
+.module.upcoming .span6 { float:left; width: 48.717948718%; }
+.module.upcoming .span6.nextReleaseDate { float:left; width: 48.717948718%; }
+
+.module.upcoming .nextReleaseDate small {line-height: 20px; font-size:20px;}
+.module.upcoming .nextReleaseDate h1 {font-size: 120px; line-height: 100px; margin: 20px 0 0 0; }
+.module.upcoming .counter time { font-size: 32px; }
+
+.module.components .componentList thead th { font-size: 15px; line-height: 30px; }
+.module.components .componentList tbody th,
+.module.components .componentList tbody td { font-size: 13px; line-height: 13px; }
+
+.module.issues .issueList thead th { font-size: 15px; line-height: 30px; }
+.module.issues .issueList tbody th,
+.module.issues .issueList tbody td { font-size: 13px; line-height: 13px; }

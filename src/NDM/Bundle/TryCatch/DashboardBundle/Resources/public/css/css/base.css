@@ -1,0 +1,55 @@
+/* Webfonts ----------- */
+@import url(webfonts.css);
+
+/* Defaults ----------- */
+@import url(defaults.css);
+
+/* Smartphones (landscape) ----------- */
+@import url(ph-landscape.css) only screen and (min-width : 321px);
+
+/* Smartphones (portrait) ----------- */
+@import url(ph-portrait.css) only screen and (max-width : 320px);
+
+/* Desktops laptops and TV ----------- */
+@import url(desktoptv.css) only screen and (min-width : 1024px);
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+
+
+

@@ -1,46 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>NDM Central Technology Informative Workspaces</title>
+    <head>
+        <title>TryCatch - Dashboards</title>
 
-    <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
-    <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-    <link rel="shortcut icon" href="img/l/apple-touch-icon.png"> <!-- For Nokia -->
-    <link rel="shortcut icon" href="/favicon.ico"> <!-- For everything else -->
-
-    <!-- below script allows CSS3 pseudo selectors in IE -->
-    <!--[if (lt IE 9) & (!IEMobile)]>
-    <script src="js/selectivizr-min.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/micro-templating.js"></script>
-    <script type="text/javascript" src="js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="js/init.js"></script>
-
-    <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
-        
-    <link rel="canonical" href="/">
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/informative_dash-all.css" /> 
-</head>
-<body class="noinfo">
-    <header class="inactive"></header>
-    <div id="section_1" class="section section_1 inactive"></div>
-    <div id="section_2" class="section section_2 inactive"></div>
-    <div id="section_3" class="section section_3 inactive"></div>
-    <div id="section_4" class="section section_4 inactive"></div>
-    <div id="section_5" class="section section_5 inactive"></div>
-    <div id="section_6" class="section section_6 inactive"></div>
-    <footer class="inactive"></footer>
-</body>
+        <link rel="stylesheet" type="text/css" href="assets/css/core.css" />
+        <script type="text/javascript">var refreshCounter = 5000;</script>
+    </head>
+    <body class="good">
+        <section id="wrapper" class="container-fluid">
+            <div id="content" class="dashboard row-fluid">
+            </div>
+            <div style="clear: both;"></div>
+        </section>
+        <script src="/vendor/modenizr.js"></script>
+        <script data-main="src/main" src="/vendor/require.js"></script>
+        <script src="/src/config/app.js"></script>
+    </body>
 </html>
-

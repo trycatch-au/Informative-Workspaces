@@ -24,6 +24,13 @@ class PlannedReleaseDate
     /**
      * @var datetime $date
      *
+     * @ORM\Column(name="freeze_date", type="datetime")
+     */
+    private $freezeDate;
+
+    /**
+     * @var datetime $date
+     *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
@@ -73,6 +80,28 @@ class PlannedReleaseDate
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set freeze date
+     *
+     * @param datetime $date
+     * @return PlannedReleaseDate
+     */
+    public function setFreezeDate($date)
+    {
+        $this->freezeDate = $date;
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return datetime
+     */
+    public function getFreezeDate()
+    {
+        return $this->freezeDate;
     }
 	/**
 	 * @return the $channel

@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'MelbourneBold';
+    src: url('webfonts/melbourne/webfonts/melbourne-bold-webfont.eot');
+    src: url('webfonts/melbourne/webfonts/melbourne-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/melbourne/webfonts/melbourne-bold-webfont.woff') format('woff'),
+         url('webfonts/melbourne/webfonts/melbourne-bold-webfont.ttf') format('truetype'),
+         url('webfonts/melbourne/webfonts/melbourne-bold-webfont.svg#MelbourneBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MelbourneRegular';
+    src: url('webfonts/melbourne/webfonts/melbourne-reg-webfont.eot');
+    src: url('webfonts/melbourne/webfonts/melbourne-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/melbourne/webfonts/melbourne-reg-webfont.woff') format('woff'),
+         url('webfonts/melbourne/webfonts/melbourne-reg-webfont.ttf') format('truetype'),
+         url('webfonts/melbourne/webfonts/melbourne-reg-webfont.svg#MelbourneRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MelbourneLight';
+    src: url('webfonts/melbourne/webfonts/melbourne-light-webfont.eot');
+    src: url('webfonts/melbourne/webfonts/melbourne-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/melbourne/webfonts/melbourne-light-webfont.woff') format('woff'),
+         url('webfonts/melbourne/webfonts/melbourne-light-webfont.ttf') format('truetype'),
+         url('webfonts/melbourne/webfonts/melbourne-light-webfont.svg#MelbourneLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

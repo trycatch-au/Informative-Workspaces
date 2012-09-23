@@ -40,29 +40,29 @@ class IssueController extends Controller {
 		return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->findAllForGraph();
 	}
 
-	/**
+    /**
      * @param string $_format The format to return the data in
      *
      * @ApiDoc(
-	 *  resource=true,
-	 *  description="Get a basic graph ready presentation of the issues"
-	 * )
-	 * @FOS\View(templateVar="issues")
-	 */
-	public function getIssuesGraphAction() {
-		return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->getGraphSummary();
-	}
+     *  resource=true,
+     *  description="Get a basic graph ready presentation of the issues"
+     * )
+     * @FOS\View(templateVar="issues")
+     */
+    public function getIssuesGraphAction() {
+        return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->getGraphSummary();
+    }
 
-	/**
+    /**
      * @param string $_format The format to return the data in
      *
      * @ApiDoc(
-	 *  resource=true,
-	 *  description="Get the highest open issue"
-	 * )
-	 * @FOS\View(templateVar="highest")
-	 */
-	public function getIssuesHighestAction() {
-		return $this->render('TryCatchApiBundle:Issue:highest.js.twig', array('highest' => rand(0, 4)));
-	}
+     *  resource=true,
+     *  description="Get a basic graph ready presentation of the issues"
+     * )
+     * @FOS\View(templateVar="issues")
+     */
+    public function getAverageOpenTimeAction() {
+        return $this->getDoctrine()->getRepository('TryCatchApiBundle:Issue')->getAverageOpenTime();
+    }
 }

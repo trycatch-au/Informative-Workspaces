@@ -19,6 +19,8 @@ class ComponentChannelRepository extends EntityRepository
 		$qb = $this->createQueryBuilder('c');
 
 		$qb
+            ->select('c', 'comp', 'chan')
+            ->innerJoin('c.channel', 'chan')
 			->innerJoin('c.component', 'comp', Expr\Join::WITH, $qb->expr()->eq('comp.' . $prop, ':'. $prop))
 			->setParameter(':' . $prop, $val)
 		;

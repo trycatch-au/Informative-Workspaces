@@ -1,0 +1,180 @@
+/* Webfonts ----------- */
+@import url(webfonts.css);
+
+/* Defaults ----------- */
+@import url(defaults.css);
+
+/* Desktops laptops and TV ----------- */
+@import url(desktoptv.css) only screen and (min-width : 767px);
+
+/* Smartphones (landscape) ----------- */
+@import url(ph-landscape.css) only screen and (min-width : 321px) and (max-device-width: 480px) and (orientation : landscape);
+
+/* Smartphones (portrait) ----------- */
+@import url(ph-portrait.css) only screen and (max-width : 320px) and (max-device-width: 480px) and (orientation : portrait);
+
+/* Smartphones (landscape) ----------- */
+@import url(tab-landscape.css) only screen and (min-width : 768px) and (max-device-width : 1024px) and (orientation : landscape);
+
+/* Smartphones (portrait) ----------- */
+@import url(tab-portrait.css) only screen  and (min-width : 768px) and (max-device-width : 1024px) and (orientation : portrait);
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+
+@-webkit-keyframes buildsuccessflash {
+  from { background-color: rgba(70,136,71, .4); }
+  to { background-color: rgba(70,136,71, 1); }
+}
+
+@-webkit-keyframes buildfailflash {
+  from { background-color: transparent; }
+  to { background-color: rgba(185,74,72, 1); }
+}
+@-webkit-keyframes buildflash {
+  from { background-color: transparent; }
+  to { background-color: rgba(58,135,173, 1); }
+}
+
+@-webkit-keyframes p1flash {
+  from { background-color: rgba(185,74,72, 1); }
+  to { background-color: rgba(185,74,72, .7); }
+}
+
+
+.success {
+  -webkit-animation-iteration-count: 5;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: .5s;
+  -webkit-animation-name: buildsuccessflash;
+}
+
+.building {
+    background: transparent;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 10s;
+  -webkit-animation-name: buildflash;
+}
+
+.fail {
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: .5s;
+  -webkit-animation-name: buildfailflash;
+}
+.module.issues {
+    padding-top: 46px;
+}
+
+.issueList div {
+    height: 39px;
+    line-height: 39px;
+    overflow:hidden;
+}
+
+.countdown_wrapper span {
+    opacity: .1;
+}
+
+.countdown_wrapper span:first-child {
+    opacity: 1;
+}
+/*
+.inp1 {
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: p1flash;
+}*/
+.module {
+    background-color: rgb(31,31,31) !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.componentList {
+    height: 540px;
+    overflow: hidden;
+}
+.flip {
+  -webkit-perspective: 800;
+    position: relative;
+}
+.flip .card {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.2s;
+}
+.flip .card > .face {
+  position: absolute;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden; /* again */
+  z-index: 2;
+  width: 100%;
+}
+.flip .card > .face.front {
+  position: absolute;
+  z-index: 1;
+}
+.flip .card > .face.back {
+  -webkit-transform: rotatey(-180deg);
+  -ms-transform: rotatey(-180deg);
+  -moz-transform: rotatey(-180deg);
+  -o-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}​
+
+.face table.inactive {
+    display: none !important;
+}
+.face table.inactive {
+    display: none !important;
+}
+
+.module.chooser {
+    display: none;
+}
+
+#configureDashButton {
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}

@@ -39,17 +39,25 @@ class ChannelTransformer extends CollectionTransformer {
 	 */
 	public function transform($value, $entity, array $record = array(), ColumnDefinition $to) {
 		$items = parent::transform($value, $entity, $record, $to);
+        $entities = array();
 
-		if(!count($items)) {
+		if(!is_array($items) || !count($items)) {
 			return new ArrayCollection();
 		}
 
 		foreach($items as $i => $item) {
-			$items[$i] = $this->writeChannel($item, $entity, $record);
-			$this->om->flush();
+            $writtenChannel = $this->writeChannel($item, $entity, $record);
+
+            if(!$writtenChannel) {
+                continue;
+            }
+
+			$entities[$i] = $writtenChannel;
 		}
 
-		return new ArrayCollection($items);
+        $this->om->flush();
+
+		return new ArrayCollection($entities);
 	}
 
 	/**
@@ -64,7 +72,12 @@ class ChannelTransformer extends CollectionTransformer {
 	 * @return \NDM\Bundle\TryCatch\ApiBundle\Entity\ComponentChannel
 	 */
 	protected function writeChannel($channel, Entity\Component $component, array $record = array()) {
+        if(!$channel) {
+            return false;
+        }
+
 		list($name, $version) = explode('@', $channel);
+
 
 
 		foreach($component->getChannels() as $recordEntity) { // Look for an already existing relationship and update if possible
@@ -90,8 +103,9 @@ class ChannelTransformer extends CollectionTransformer {
 		$recordEntity->setComponent($component);
 		$recordEntity->setChannel($channel);
 
-		$this->om->persist($recordEntity);
+        $this->om->persist($recordEntity);
 
+        $this->om->flush();
 		return $recordEntity;
 	}
 }
